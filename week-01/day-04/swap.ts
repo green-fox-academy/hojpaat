@@ -2,9 +2,11 @@
 export{}
 let a: number = 123;
 let b: number = 526;
-a = a ^ b;
-b = a ^ b;
-a = a ^ b;
+let c: number = null;
+
+c = a;
+a = b;
+b = c;
 
 console.log(a);
 console.log(b);
