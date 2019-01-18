@@ -6,9 +6,9 @@ let numb: number = 8;
 let addition: number = null;
 let average: number = null;
 
-
+console.log("Please write a number");
 for (let i: number = 0; i < numb; i++) {
-    console.log("Please write a number");
+
     addition += (i + 5);
     sum += addition;
 }
