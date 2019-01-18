@@ -8,7 +8,7 @@ let star: string = "";
 
 for (let i: number = 0; i < lineCount; i++) {
     for (let j: number = 0; j < (lineCount-1-i); j++) {
-        space += " ";
+        space += "0";
     }
     for (let k: number = 0; k < (2*i+1); k++) {
         star += "*";
