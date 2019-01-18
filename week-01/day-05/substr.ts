@@ -1,5 +1,5 @@
 'use strict';
-export{}
+export { }
 
 let text: string = "Hello test alma!";
 let keyword: string = "eper";
@@ -17,13 +17,14 @@ text2Length = text2.length
 
 
 
-for (let i: number = 0; i < (text2Length - keyword2Length); i++)  {
+for (let i: number = 0; i < (text2Length - keyword2Length); i++) {
     test = text2.substr(i, keyword2Length);
     if (test === keyword2) {
         found = i;
     } else {
-    continue}
-} 
+        continue
+    }
+}
 
 console.log(found);
 
