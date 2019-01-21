@@ -15,6 +15,6 @@ let ai: number [] = [3, 4, 5, 6, 7];
 
 let sum: number = ai.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
-}0);
+}, 0);
 
 console.log(sum);
