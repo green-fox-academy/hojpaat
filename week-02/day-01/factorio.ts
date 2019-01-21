@@ -5,7 +5,7 @@ export{}
 // -  Create a function called `factorio`
 //    that returns it's input's factorial
 
-function factorio (a: number = 1): number{
+function factorio (a: number = 1): number {
   let fact: number = 0;
   if (a === 0) {
     fact = 1;

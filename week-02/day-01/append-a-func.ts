@@ -9,9 +9,9 @@ export{}
 
 let typo: string = "Chinchill";
 
-function appendAFunc (a = typo) {
+function appendAFunc (a = typo):any {
   console.log("Whhaat?");
-  return a += "a";
+  a += "a";
   console.log(a);  //why it is unreachable?
 }
 
