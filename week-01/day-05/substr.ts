@@ -2,7 +2,7 @@
 export { }
 
 let text: string = "Hello test alma!";
-let keyword: string = "eper";
+let keyword: string = "car";
 let text2: string = "";
 let keyword2: string = "";
 let text2Length: number = null;
@@ -18,7 +18,7 @@ text2Length = text2.length
 
 
 for (let i: number = 0; i < (text2Length - keyword2Length); i++) {
-    test = text2.substr(i, keyword2Length);
+test = text2.substr(i, keyword2Length);
     if (test === keyword2) {
         found = i;
     } else {
