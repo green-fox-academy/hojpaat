@@ -20,6 +20,8 @@ let hashmap = {
 };
 
 
+console.log(hashmap[7]);
+
 notSoCrypticMessage.forEach(i => {
   out = out.concat(hashmap[i]);
 });

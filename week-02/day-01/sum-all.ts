@@ -18,3 +18,9 @@ let sum: number = ai.reduce((accumulator, currentValue) => {
 }, 0);
 
 console.log(sum);
+
+let diff: number = ai.reduce((accumulator, currentValue) => {
+  return accumulator - currentValue;
+}, 2 * ai[0]);
+
+console.log(diff);

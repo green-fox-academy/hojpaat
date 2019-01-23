@@ -14,3 +14,4 @@ function printOut (a: number): any {
 
 
 integers.forEach(printOut);
+

@@ -8,6 +8,12 @@ export{}
 //	   -  do it with creating a new temp array and a loop
 // -  Print the elements of the reversed `numList`
 
+
+// with a built-in function
 let numList: number [] = [3, 4, 5, 6, 7];
 
 console.log(numList.reverse());
+
+//with a loop
+
+let numList2: number [] = [3, 4, 5, 6, 7];
