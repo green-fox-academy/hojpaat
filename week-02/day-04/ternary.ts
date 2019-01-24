@@ -53,6 +53,7 @@ let C: number = 15;
 let distance: number = 50;
 let fix: number = Math.sqrt(distance ** 2 * 0.75);
 
+//ternary calculation
 ctx.beginPath();
 ctx.strokeStyle = 'red';
 ctx.moveTo(xOriginal, yOriginal);
@@ -67,6 +68,20 @@ ctx.stroke();
 let ternaryX: number = xOriginal;
 let ternaryY: number = yOriginal;
 
-ternaryX += 
+// ternary drawing
+// ternaryX = xOriginal + (100 - A) * distance * 0.1 - (C * 0.1 * 0.5 * distance);
+// ternaryY = yOriginal - fix * C * 0.1;
+
+let grainSize: number [] = [65, ]
+
+ctx.beginPath();
+ctx.lineWidth = 5;
+ctx.arc(ternaryX, ternaryY, 10, 0, Math.PI * 2);
+ctx.stroke();
+
+// ctx.beginPath()
+// ctx.arc(ternaryX, ternaryY, 20, 0, math.PI * 2)
+// ctx.storke()
+
 
 
