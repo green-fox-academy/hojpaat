@@ -15,7 +15,7 @@ function drawingSquares (kx: number = 0, ky: number = 0, w: number = 10, color: 
 
 let size: number = 10;
 
-function checkerboard (size: number = 10){
+function checkerboard1 (size: number = 10){
   let coordinateX: number = 0;
   let coordinateY: number = 0;
   let n: number = Math.floor(600/size);
@@ -27,7 +27,7 @@ function checkerboard (size: number = 10){
     } else {
       coordinateX = 0;
     }
-    for (let i: number = 0; i < n + 1; i++){
+    for (let i: number = j; i < n + 1+ j; i++){
       if ((coordinateX + size * j) % (size * 2) !== 0) {
       drawingSquares(coordinateX, coordinateY, size, 'black');
       coordinateX += size;
@@ -40,4 +40,34 @@ function checkerboard (size: number = 10){
 }
 }
 
-checkerboard(50);
+// more simple
+function checkerboard2(size: number = 8, k1: string = 'black', k2: string = 'white'){
+  let k: string = '';
+  let c: number = Math.floor(600/size);
+  let r: number = Math.floor(400/size);
+  let x: number = 0;
+  let y: number = 0;
+
+  for (let j: number = 0; j < r + 1; j++){
+    
+    for(let i: number = j; i < c + 1 + j; i++){
+      if (i % 2 === 0){
+        k = k1;
+      } else {
+        k = k2;
+      }
+      drawingSquares(x, y, 50, k);
+      x += 50;
+    }
+    x = 0;
+    y += 50;
+  }
+}
+
+
+
+
+
+
+checkerboard2(30, 'grey', 'pink');
+// checkerboard(50);

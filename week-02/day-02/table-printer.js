@@ -22,7 +22,7 @@
 
 
 
-const ingredients: any[] = [
+const ingredients = [
 	{ name: 'vodka', inStock: 1, needsCooling: true },
 	{ name: 'coffee_liqueur', inStock: 0, needsCooling: true },
 	{ name: 'fresh_cream', inStock: 1, needsCooling: true },
@@ -34,9 +34,12 @@ const ingredients: any[] = [
 ];
 
 let ingr = ingredients;
-let firstRow: string = '';
 
-function printFirstRow (){
+let firstRow = '+' + '-'.repeat((ingredients[0].name).length)
+console.log(firstRow);
+console.log(ingr[0].name);
+
+/*function printFirstRow (){
   for (let j: number; j < (Object.keys(ingr)).length; j++) {
 
     let charachters: number [] = [];
@@ -50,11 +53,11 @@ function printFirstRow (){
     firstRow += '+';
     
   }
-}
+}*/
 
-function printOut (){
-  for (let i: number = 0; i < 5)
-}
+// function printOut (){
+//   for (let i: number = 0; i < 5)
+// }
 
 
-console.log(firstRow);
+// console.log(firstRow);

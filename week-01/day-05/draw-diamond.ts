@@ -18,7 +18,7 @@ for (let i: number = 0; i < ((lineCount + 1) * 0.5); i++) {
     space = "";
 }
 
-/*for (let i: number = 0; i < (lineCount * 0.5 - 1); i++) {
+for (let i: number = 0; i < (lineCount * 0.5 - 1); i++) {
     for (let j: number = (lineCount); j > (lineCount - i - 1); j--) {
         space += "0";
     }
@@ -28,6 +28,5 @@ for (let i: number = 0; i < ((lineCount + 1) * 0.5); i++) {
     console.log(space + star);
     star = "";
     space = "";
-}*/
-
+}
 
