@@ -1,17 +1,18 @@
 class Thing {
-  private name: string;
-  private completed: boolean;
+  public name: string;
+  public completed: boolean;
 
-  constructor(name: string){
-      this.name = name;
+  constructor(name: string) {
+    this.name = name;
+    this.completed = false;
   }
 
   public complete() {
-      this.completed = true;
+    this.completed = true;
+  }
+  printName() {
+    console.log(this.name);
   }
 }
 
 export { Thing };
-
-let test1 = new Thing('test1');
-console.log(test1);

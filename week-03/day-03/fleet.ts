@@ -1,21 +1,27 @@
 import { Thing } from "./thing";
 
 class Fleet {
-    private things: Thing[];
+  public things: Thing[];
 
-    constructor() {
-        this.things = [];
-    }
+  constructor() {
+    this.things = [];
+  }
 
-    add(thing: Thing) {
-        this.things.push(thing);
+  add(thing: Thing) {
+    this.things.push(thing);
+  }
+
+  print() {
+    for (let i: number = 0; i < this.things.length; i++){
+      if (this.things[i].completed) {
+        console.log(`${i+1}. [x] ${this.things[i].name}`)
+      }else {
+        console.log(`${i+1}. [ ] ${this.things[i].name}`)
+      }
     }
+  }
+
 }
 
-export { Fleet };
 
-let test = new Thing('test');
-let fleetTest = new Fleet();
-// test.add(test);
-console.log(test);
-console.log(fleetTest);
+export { Fleet };

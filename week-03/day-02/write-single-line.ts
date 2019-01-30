@@ -17,4 +17,4 @@ function writeToFile (fileName: string, inputText: string) {
   }
 }
 
-writeToFile('text3.txt', 'test');
+writeToFile('my-file.txt', 'Judit');

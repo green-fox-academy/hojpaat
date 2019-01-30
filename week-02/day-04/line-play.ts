@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 
 function playLines (distance: number = 10, color1: string = 'blue', color2: string = 'red') {
 
-  for (let i: number = 0; i < canvas.height/distance; i++) {
+  for (let i: number = 0; i < 20; i++) {
     //upper lines
     ctx.beginPath();
     ctx.strokeStyle = color1;
@@ -23,6 +23,6 @@ function playLines (distance: number = 10, color1: string = 'blue', color2: stri
   }
 }
 
+playLines(30, 'blue', 'orange');
 
-playLines(20, 'pink', 'grey');
 

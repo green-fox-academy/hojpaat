@@ -8,7 +8,7 @@ const fs = require('fs');
 
 function copyFile (copyFrom: string, copyTo: string) {
   try{
-    fs.readFileSync(copyFrom, 'utf-8');
+    // fs.readFileSync(copyFrom, 'utf-8');
     let text = fs.readFileSync(copyFrom, 'utf-8');
     if(text){
       fs.writeFileSync(copyTo, text);
@@ -17,8 +17,8 @@ function copyFile (copyFrom: string, copyTo: string) {
       throw new Error('Copy is not successful');
     }
   }catch (error) {
-    console.log('Copy is unsuccessful');
+    console.log('Copy is unsuccessful2');
   }
 }
 
-copyFile('text2.txt', 'text.txt')
+copyFile('text3.txt', 'text5.txt')

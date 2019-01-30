@@ -34,26 +34,27 @@ const ingredients = [
 ];
 
 let ingr = ingredients;
-
-let firstRow = '+' + '-'.repeat((ingredients[0].name).length)
-console.log(firstRow);
-console.log(ingr[0].name);
-
-/*function printFirstRow (){
-  for (let j: number; j < (Object.keys(ingr)).length; j++) {
-
-    let charachters: number [] = [];
-    charachters = ingr.map(value => (value.name).length);
-    
-    
-    firstRow += '+';
-    for(let i: number = 0; i < Math.max(...charachters); i++) {
-      firstRow += '-';
-    }
-    firstRow += '+';
-    
+let firstRow: string = 'a';
+let secondRow: string = '| Ingredients';
+function printFirstRows (){ //print out first row first column
+  
+  let charachters: number [] = ingr.map(value => (value.name).length);
+  firstRow = '+';
+  
+  for(let i: number = 0; i < Math.max(...charachters); i++) { // provides to have enough '-' according to the longest inredient
+  firstRow += '-';
   }
-}*/
+  for(let i: number = 12; i < Math.max(...charachters); i++) {
+    secondRow += ' ';
+  }
+
+console.log(firstRow.concat('+---------------+----------+'));
+console.log(secondRow + '| Needs cooling | In stock |');
+console.log(firstRow.concat('+---------------+----------+'));
+}
+
+printFirstRows();
+
 
 // function printOut (){
 //   for (let i: number = 0; i < 5)
