@@ -31,20 +31,22 @@ class DiceSet {
   }
 }
 
+export {DiceSet};
+
 // You have a `DiceSet` class which has a list for 6 dice
 // You can roll all of them with roll()
 // Check the current rolled numbers with getCurrent()
 // You can reroll with reroll()
 // Your task is to roll the dice until all of the dice are 6
-
+/* 
 let diceSet = new DiceSet();
 console.log(diceSet.roll());
-console.log(diceSet.getCurrent());
+console.log(diceSet.getCurrent(3));
 
 console.log("------------------");
 
-diceSet.reroll();
-console.log(diceSet.getCurrent());
+diceSet.reroll(2);
+console.log(diceSet.getCurrent(2));
 
 console.log("------------------");
 
@@ -55,4 +57,4 @@ console.log(diceSet.getCurrent());
 console.log("------------------");
 
 diceSet.reroll(4);
-console.log(diceSet.getCurrent());
+console.log(diceSet.getCurrent()); */

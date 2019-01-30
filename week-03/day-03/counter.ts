@@ -2,13 +2,14 @@
 
 class counter {
   amount: number;
-
+  initialVal: number;
   constructor(amount: number = 0){
     this.amount = amount;
+    this.initialVal = amount;
   }
 
   add(increaser: number = 1){
-    return this.amount += increaser;
+    this.amount += increaser;
   }
 
   get () {
@@ -16,10 +17,12 @@ class counter {
   }
 
   reset () {
-    this.amount = 0;
+    this.amount = this.initialVal;
   }
 }
 
-let test = new counter();
+let test = new counter(10);
 test.add(12);
 test.get();
+test.reset();
+test.get()
