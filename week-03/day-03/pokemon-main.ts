@@ -24,12 +24,6 @@ function initializePokemon(): Pokemon[] {
 
 let pokemonOfAsh: Pokemon[] = initializePokemon();
 
-// pokemonOfAsh.forEach(function (value) {
-
-//   if (value.isEffectiveAgainst(wildPokemon)) {
-//     console.log('yeah');
-//   } 
-// }
 
 pokemonOfAsh.forEach(value =>{
   if (value.isEffectiveAgainst(wildPokemon)) {
