@@ -1,6 +1,6 @@
 'use strict';
 
-class sharpie {
+class Sharpie {
   color: string;
   width: number;
   inkAmount: number;
@@ -17,7 +17,5 @@ class sharpie {
 }
 
 
-let red = new sharpie('red', 0.3)
-red.use();
-red.use();
-console.log(red.inkAmount);
+
+export{Sharpie};
