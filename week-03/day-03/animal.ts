@@ -1,10 +1,12 @@
 'use strict';
 
-class animal {
+class Animal {
   hungerValue: number;
   thirstValue: number;
+  name: string;
 
-  constructor (){
+  constructor (inputName: string){
+    this.name = inputName;
     this.hungerValue = 50;
     this.thirstValue = 50;
   }
@@ -24,8 +26,5 @@ class animal {
   }
 }
 
-let koala = new animal();
-console.log(koala.hungerValue);
-koala.play();
-console.log(koala.hungerValue);
-console.log(koala.thirstValue);
+
+export{Animal};
