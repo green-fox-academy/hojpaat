@@ -72,3 +72,5 @@ function winnerIs(){
 }
 
 winnerIs();
+
+console.log(gameArray);

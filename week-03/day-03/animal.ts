@@ -5,9 +5,9 @@ class Animal {
   thirstValue: number;
   name: string;
 
-  constructor (inputName: string){
+  constructor (inputName: string, hungerLevel: number = 50){
     this.name = inputName;
-    this.hungerValue = 50;
+    this.hungerValue = hungerLevel;
     this.thirstValue = 50;
   }
 

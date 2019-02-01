@@ -12,9 +12,9 @@ class Farm {
   animal: Animal[];
   slot: number;
 
-  constructor() {
-    this.animal = []
-    this.slot = 30;
+  constructor(initialize: Animal[] = []) {
+    this.animal = initialize;
+    this.slot = 30 - initialize.length;
   }
 
   add(farmAnimal: Animal) {
@@ -38,22 +38,21 @@ class Farm {
 
 }
 
-let myFarm = new Farm();
-console.log(myFarm);
-let animal1 = new Animal('koala');
-let animal2 = new Animal('horse');
-let animal3 = new Animal('ladybug');
-let animal4 = new Animal('whale');
-let animal5 = new Animal('raven');
-animal5.hungerValue = 10;
-animal2.hungerValue = 30;
-animal3.hungerValue = 13;
-myFarm.add(animal1);
-myFarm.add(animal2);
-myFarm.add(animal3);
-myFarm.add(animal4);
-myFarm.add(animal5);
 
+
+function initializeFarm(): Animal[]{
+  let animals = [];
+  animals.push(new Animal('koala', 10));
+  animals.push(new Animal('ladybug', 30));
+  animals.push(new Animal('whale', 50));
+  animals.push(new Animal('cat'));
+  animals.push(new Animal('dog',12));
+  animals.push(new Animal('llama',80));
+  animals.push(new Animal('fox',40));
+  return animals;
+}
+
+let myFarm = new Farm(initializeFarm());
 
 myFarm.breed('horse');
 myFarm.breed('sheep');
