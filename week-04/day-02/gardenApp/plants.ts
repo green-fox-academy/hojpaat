@@ -1,16 +1,6 @@
 'use strict';
 
 
-
-const watering = (state) => ({
-  watering: (w: number)=> {
-    state.waterAmount += w * state.absorb;
-  }
-});
-
-
-
-
 class Plant {
   type: string;
   color: string;
@@ -18,10 +8,9 @@ class Plant {
   needWater: boolean = false;
   absorb: number;
 
-  constructor(t: string, c: string){
-    this.type = t,
+  constructor(c: string){
     this.color = c
-    t === 'flower' ? this.absorb = 0.75 : this.absorb = 0.4;
+    
   }
 
   isNeedWatering(){
@@ -33,7 +22,26 @@ class Plant {
     return this.needWater;
   }
 
+  watering(w: number){
+    this.waterAmount += w * this.absorb;
+  }
+
 
 }
 
-export { watering, Plant};
+
+class Flower extends Plant{
+  type:string = 'flower';
+  absorb: number = 0.75;
+  
+
+
+}
+
+class Tree extends Plant{
+  type:string = 'tree';
+  absorb: number = 0.4;
+}
+export { Plant, Flower, Tree};
+
+

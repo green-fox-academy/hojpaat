@@ -1,13 +1,13 @@
 'use strict';
 
-import { watering, Plant} from './plants';
+import { Plant, Flower, Tree} from './plants';
 
 function initializeGarden(): Plant[]{
   let plants = [];
-  plants.push(new Plant('flower', 'yellow'));
-  plants.push(new Plant('flower', 'blue'));
-  plants.push(new Plant('tree', 'purple'));
-  plants.push(new Plant('tree', 'orange'));
+  plants.push(new Flower('yellow'));
+  plants.push(new Flower('blue'));
+  plants.push(new Tree('purple'));
+  plants.push(new Tree('orange'));
   return plants;
 }
 
@@ -25,15 +25,34 @@ class Garden {
 
   waterGarden(w: number){
     this.plants.forEach((plant: Plant) => plant.isNeedWatering());
+    let numberNeedWater: number = 0;
+
+    this.plants.forEach(plant => {
+      plant.needWater === true ? numberNeedWater++ : numberNeedWater += 0;
+      return numberNeedWater;
+    })
+    console.log(`Watering with ${w}`)
+    w = w / numberNeedWater;
     
+    this.plants.forEach(plant =>{
+      if(plant.needWater !== true){
+        console.log(`Plant ${plant.color} ${plant.type} doesn't need water`)
+      }else {
+        console.log(`Plant ${plant.color} ${plant.type} needs water`)
+        plant.watering(w);
+        
+      }
+      })
+
   }
 
 
 }
 
 let secretGarden = new Garden(initializeGarden());
+secretGarden.waterGarden(0);
+secretGarden.waterGarden(40);
+secretGarden.waterGarden(70);
 
-secretGarden.waterGarden(10);
-console.log(secretGarden);
 
 
