@@ -1,5 +1,13 @@
 import {Domino} from "./domino";
 
+class Dominoset{
+  dominoes: any[];
+
+  constructor(inirialize: Domino[] = []){
+    this.dominoes = inirialize;
+  }
+}
+
 function initializeDominoes(): Domino[] {
     let dominoes = [];
     dominoes.push(new Domino(5, 2));
@@ -17,7 +25,7 @@ function print(dominoes: Domino[]) {
     });
 }
 
-let dominoes = initializeDominoes();
+let dominoes = new Dominoset(initializeDominoes());
 
 let smallest: number = 10;
 let sIndex: number = 0;

@@ -19,9 +19,3 @@ class Value implements Comparable {
   }
 }
 
-let x = new Value;
-let y = new Value;
-x.value = 6;
-y.value = 9;
-
-console.log(x.compareTo(y));
