@@ -2,11 +2,11 @@
 
 
 class Plant {
-  type: string;
-  color: string;
+  type: string = 'plant';
+  color: string = 'green';
   waterAmount: number = 0;
   needWater: boolean = false;
-  absorb: number;
+  absorb: number = 1;
 
   constructor(c: string){
     this.color = c
