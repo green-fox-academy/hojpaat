@@ -6,30 +6,22 @@ abstract class Instrument {
   constructor(){
   }
   
-  sound(instrument: string, stringNumber: number, sound: string){
-    console.log(`${instrument}, a ${stringNumber}-stringed intrument that goes with ${sound}`);
-    
-  }
+  play(){};
 }
 
 abstract class StringedInstrument extends Instrument{
   numberOfString: number;
-  voice: string;
 
-  constructor(strings: number, v: string){
+  constructor(strings: number){
     super();
     this.numberOfString = strings;
-    this.voice = v;
   }
 
-  introduce(){
-    console.log(this.numberOfString);
-    
-  }
+  sound(): void {};
 
-  play(){
-    this.sound(this.name, this.numberOfString, this.voice)
-  }
+  abstract play(){ 
+    this.sound();
+  };
 
 }
 
@@ -37,25 +29,48 @@ abstract class StringedInstrument extends Instrument{
 class ElectricGuitar extends StringedInstrument{
   name: string = 'Electric Guitar';
 
-  constructor(strings: number = 6, v: string = 'Twangg'){
-    super(strings, v);
-
+  constructor(strings: number = 6){
+    super(strings);
   }
+
+  sound(): string {
+    return 'Twaand';
+  }
+
+  play(){
+    console.log(`${this.name} is a ${this.numberOfString}-stringed instrument that goes with ${this.sound()}`)
+  }
+
 }
 
 class BassGuitar extends StringedInstrument{
   protected name = 'Bass Guitar';
 
   constructor(string: number = 4, v: string = 'Duum-duum-duum'){
-    super(string, v)
+    super(string)
+  }
+
+  sound(): string {
+    return 'Duum-duum-duum';
+  }
+  play(){
+    console.log(`${this.name} is a ${this.numberOfString}-stringed instrument that goes with ${this.sound()}`)
   }
 }
 
 
 class Violin extends StringedInstrument{
   protected name = 'Violin';
-  constructor(string: number = 4, v: string = 'Screech'){
-    super(string, v)
+  voice: string;
+  constructor(string: number = 4){
+    super(string);
+  }
+
+  sound(): string {
+    return 'Twaand';
+  }
+  play(){
+    console.log(`${this.name} is a ${this.numberOfString}-stringed instrument that goes with ${this.sound()}`)
   }
 }
 
