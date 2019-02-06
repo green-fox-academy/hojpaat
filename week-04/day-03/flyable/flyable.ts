@@ -1,5 +1,5 @@
 'use strict';
-
+export{};
 interface Flyable {
 
   land(): void;
