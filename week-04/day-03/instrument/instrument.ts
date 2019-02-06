@@ -28,12 +28,7 @@ abstract class StringedInstrument extends Instrument{
   }
 
   sound(){
-    console.log(`${this.name}, a ${this.numberOfString}-stringed intrument that goes with ${this.voice}`);
-    
-  }
-
-  play(){
-    this.sound();
+    this.play(this.name, this.numberOfString, this.voice)
   }
 
 }
