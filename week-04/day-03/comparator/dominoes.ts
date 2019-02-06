@@ -1,13 +1,5 @@
 import {Domino} from "./domino";
 
-class Dominoset{
-  dominoes: any[];
-
-  constructor(inirialize: Domino[] = []){
-    this.dominoes = inirialize;
-  }
-}
-
 function initializeDominoes(): Domino[] {
     let dominoes = [];
     dominoes.push(new Domino(5, 2));
@@ -25,8 +17,8 @@ function print(dominoes: Domino[]) {
     });
 }
 
-let dominoes = new Dominoset(initializeDominoes());
-
+let dominoes = initializeDominoes();
+/* 
 let smallest: number = 10;
 let sIndex: number = 0;
 let dominoSnake: any [] = [];
@@ -50,4 +42,8 @@ for(let i: number = 0; i < dominoes.length - 1; i++){
 }
 // console.log(dominoSnake);
 
-print(dominoSnake);
+print(dominoSnake); */
+
+console.log(dominoes.sort((a: Domino, b: Domino): number => {
+  return a.compareTo(b);
+}))
