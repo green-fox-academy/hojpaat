@@ -11,10 +11,14 @@ class Reservation implements Reservationy{
     return this.openDays[Math.floor(Math.random() * 7)];
   };
   getCodeBooking():string {
-    return 't';
+    return Math.random().toString(36).replace('0.', '').substring(0, 8).toUpperCase();
   }
 
+  reservation():void {
+    console.log(`Booking# ${this.getCodeBooking()} for ${this.getDowBooking()}`);
+  }
 }
 
 let test = new Reservation;
-console.log(test.getDowBooking());
+
+test.reservation();
