@@ -7,11 +7,13 @@ export class Numbers{
     this.numbers = this.numbers.concat(input);
   }
 
-  sum(){
+  sum(): number{
     return this.numbers.reduce((accumulator: number, currentValue: number) => {
       return accumulator + currentValue;
     }, 0);
   }
 
 }
+
+
 
