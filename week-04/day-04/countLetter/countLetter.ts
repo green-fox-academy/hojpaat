@@ -16,3 +16,4 @@ export function countLetter(inputText: string){
   return dictionary;
 }
 
+
