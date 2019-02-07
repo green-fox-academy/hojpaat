@@ -14,5 +14,4 @@ function anagram(string1: string, string2: string): boolean{
   
 }
 
-
-console.log(anagram('t est', 'est t'));
+export {anagram}
