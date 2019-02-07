@@ -10,5 +10,3 @@ export function fibonacci(index: number){
   }
 }
 
-
-console.log(fibonacci(3));
