@@ -1,6 +1,6 @@
 'use strict';
 
-function countLetter(inputText: string){
+export function countLetter(inputText: string){
   inputText = inputText.toLowerCase();
   inputText = inputText.replace(/\./g, '');
   let textArray: string[] = inputText.replace(/ /g, '').split('');
@@ -8,19 +8,11 @@ function countLetter(inputText: string){
   let dictionary: object = {}
   textArray.forEach(letter => {
     if(dictionary[letter] === undefined){
-      dictionary[letter] = 0;
+      dictionary[letter] = 1;
     }else {
     dictionary[letter]++}
     return dictionary;
   });
-
-  console.log(dictionary);
-  
-  
-  
-  
+  return dictionary;
 }
-
-
-
 
