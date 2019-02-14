@@ -32,18 +32,27 @@ function mostFrequent(freqencies: object){
   let biggestFrequency = 0;
   let options: string[] = [];
   for(let i: number = 1; i < 91; i++){
-    options.push(i.toString());
+    options.push(i.toString());}
+
+for(let j: number = 0; j < 5; j++){
+
+  for(let i: number = 1; i < 91; i++){
+    if(searchedChar.indexOf(options[i - 1]) < 0){
+      if (freqencies[options[i - 1]] > biggestFrequency){
+        biggestFrequency = freqencies[options[i - 1]];
+        mostFrequent = options[i - 1];
+      }}}
+    searchedChar.push(mostFrequent);
     
-    if (freqencies[options[i - 1]] > biggestFrequency){
-      biggestFrequency = freqencies[options[i - 1]];
-      mostFrequent = options[i - 1];
+    biggestFrequency = 0;
+    mostFrequent = undefined;
   }
+  return searchedChar;
 }
-return searchedChar.push(mostFrequent);
-}
+
 
 let lottoNumberArray = getLotteryNumber(readFile('lotteryNumbers.txt'));
 
 let frequency: object = countNumber(lottoNumberArray);
 
-mostFrequent(frequency);
+console.log(`The most common numbers are: ${mostFrequent(frequency)}`);
