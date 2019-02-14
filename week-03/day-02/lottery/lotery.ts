@@ -8,10 +8,24 @@ function readFile(fileName: string): string[][]{
   return textArray.map(value => value.split(';'))
 }
 
-function getLotteryNumber(fileName: string): string[][]{
-  let lottoNumberArray: string[][] = readFile(fileName);
-  return lottoNumberArray.map(value => value.slice(-5));
+
+function getLotteryNumber(data: string[][]): string[][]{
+  return data.map(value => value.slice(-5));
 }
 
-console.log(readFile('lotteryNumbers.txt'));
+function countNumber(data: string[][]): any{
+  let lottoNumberFrequency: object = {}
+  data.forEach(oneEvent => {
+    oneEvent.forEach(lottoNumber => {
+    if(typeof lottoNumberFrequency[lottoNumber] === 'undefined'){
+      lottoNumberFrequency[lottoNumber] = 0;
+    }
+    lottoNumberFrequency[lottoNumber]++;
+  });
+})
+return lottoNumberFrequency;
+}
 
+let lottoNumberArray = getLotteryNumber(readFile('lotteryNumbers.txt'));
+
+console.log(countNumber(lottoNumberArray));
