@@ -24,11 +24,9 @@ abstract class CAB {
     }
     if('cowcowcowcow' === cowBull.join('')){
       this.state = 'finished';
-      console.log(`You won, the number was ${this.mainNumber.join('')}`);
-    }else{
-      console.log(cowBull);
-      
+      console.log(`You won, the number was ${this.mainNumber.join('')}`)
     }
+    return cowBull;
   }
 }
 
@@ -39,7 +37,4 @@ class Game extends CAB {
   }
 }
 
-let game1 = new Game(1,2,3,4);
-
-console.log(game1.mainNumber);
-game1.guess([1, 2, 3, 4]);
+export{ CAB, Game };

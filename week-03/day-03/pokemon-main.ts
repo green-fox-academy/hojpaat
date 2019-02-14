@@ -7,7 +7,7 @@ import { Pokemon } from './Pokemon'
 // Ash has a few pokemon.
 // A wild pokemon appeared!
 
-let wildPokemon: Pokemon = new Pokemon('Oddish', 'leaf', 'water');
+let wildPokemon: Pokemon = new Pokemon('Oddish', 'fire', 'water');
 
 // Which pokemon should Ash use?
 
@@ -17,7 +17,7 @@ function initializePokemon(): Pokemon[] {
     new Pokemon('Balbasaur', 'leaf', 'water'),
     new Pokemon('Pikatchu', 'electric', 'water'),
     new Pokemon('Charizard', 'fire', 'leaf'),
-    new Pokemon('Balbasaur', 'water', 'fire'),
+    new Pokemon('Squirte', 'water', 'fire'),
     new Pokemon('Kingler', 'water', 'fire')
   ];
 }
