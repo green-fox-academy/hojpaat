@@ -25,11 +25,16 @@ class Aircraft{
     return this.allDem = d;
   }
 
-    refill(a: number){
-      a -= (this.maxAmmo - this.ammo);
-      this.ammo = this.maxAmmo;
-      return a;
+    refill(allAmmo: number){
+      let diff = this.maxAmmo - this.ammo;
+      this.ammo += Math.min(diff, allAmmo);
+      return allAmmo - Math.min(diff, allAmmo)
     }
+
+    compareAircragts(aircraft1: Aircraft, aircraft2: Aircraft){
+      
+    }
+
 
     getType(){
       return this.type;
@@ -44,6 +49,8 @@ class Aircraft{
       return this.priority;
     }
 
+
+    
 }
 
 class F16 extends Aircraft{

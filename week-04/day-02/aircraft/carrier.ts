@@ -2,16 +2,18 @@
 
 import { Aircraft, F16, F30} from './airCraft';
 
+
+
 class Carrier{
   aircrafts: Aircraft[];
   ammo: number;
   hp: number;
   allDemage: number;
 
-  constructor(a: number, h: number){
+  constructor(allAmmo: number, startHP: number){
     this.aircrafts = [];
-    this.ammo = a;
-    this.hp = h;
+    this.ammo = allAmmo;
+    this.hp = startHP;
     this.allDemage = 0;
   }
 
@@ -24,17 +26,34 @@ class Carrier{
     return ammoPerAircraft.reduce((accV: number, currentV: number) => accV += currentV, this.ammo);
   }
 
-  // fillAllAircraft(){
-  //   let usedAmmo: number = 0;
-  //   usedAmmo = this.aircrafts.forEach(value => value.refill(usedAmmo));
-  // }
-
-  fill(){
-    if(this.neededAmmo() > this.ammo){
-      this.aircrafts.sort().reverse()
-    }
+  fillAllAircraft(){
+    
+    this.aircrafts.forEach(value => this.ammo = value.refill(this.ammo));
+    console.log(this.ammo);
     
   }
+
+
+
+
+  orderPriority(){
+      this.aircrafts.sort((aircraft1: Aircraft, aircraft2: Aircraft) => {
+        if(aircraft1.priority === false && aircraft2.priority === true){
+          return 1;
+        }else if (aircraft1.priority === true && aircraft2.priority === false){
+          return -1;
+        }else{
+          return 0;
+        }
+      })
+      return this.aircrafts;
+  }
+
+  fill(){
+    this.orderPriority();
+    this.aircrafts.forEach(aircraft => aircraft.refill(this.ammo));
+  }
+
 
   calculateAllDemage(){
     this.allDemage = 0;
@@ -62,7 +81,7 @@ class Carrier{
 
 let one1 = new F16();
 let one2 = new F16();
-let one3 = new F16();
+let one3 = new F30();
 let one4 = new F16();
 one1.allDem = 10;
 one2.allDem = 30;
@@ -73,10 +92,16 @@ let test = new Carrier(300, 50);
 test.addAircraft(one1);
 test.addAircraft(one2);
 test.addAircraft(one3);
-test.addAircraft(one4);
+// test.addAircraft(one4);
+// console.log(one1);
 
-console.log(test.calculateAllDemage());
-console.log(test.calculateAllDemage());
+// console.log(one1.refill(50));
+// console.log(one1);
+// console.log(one1);
+
+
+test.orderPriority();
+console.log(test);
 
 
 
