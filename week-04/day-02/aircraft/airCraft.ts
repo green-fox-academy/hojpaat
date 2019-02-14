@@ -31,11 +31,6 @@ class Aircraft{
       return allAmmo - Math.min(diff, allAmmo)
     }
 
-    compareAircragts(aircraft1: Aircraft, aircraft2: Aircraft){
-      
-    }
-
-
     getType(){
       return this.type;
     }
@@ -44,13 +39,9 @@ class Aircraft{
       return `Type ${this.type}, Ammo: ${this.ammo}, Base Demage: ${this.baseDemage}, All Demage: ${this.allDem} `
     }
 
-
     isPriority(){
       return this.priority;
     }
-
-
-    
 }
 
 class F16 extends Aircraft{
