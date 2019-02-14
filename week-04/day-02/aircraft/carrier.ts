@@ -69,14 +69,11 @@ class Carrier {
       this.aircrafts.forEach(value => console.log(value.getStatus()));
     };
   }
-
 }
-
 
 let one1 = new F16();
 let one2 = new F16();
 let one3 = new F35();
-
 
 let test = new Carrier(300, 1000);
 test.addAircraft(one1);
@@ -90,12 +87,3 @@ enemy.addAircraft(one4);
 enemy.addAircraft(one5);
 
 test.getStatus();
-
-// test.fight(enemy);
-// console.log(test.hp, enemy.hp);
-
-
-
-
-
-

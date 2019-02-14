@@ -1,6 +1,5 @@
 'use strict';
 
-
 class Aircraft{
   type: string;
   maxAmmo: number;
@@ -8,7 +7,6 @@ class Aircraft{
   ammo: number;
   allDem: number;
   priority: boolean;
-
 
   constructor(){
     this.type = undefined;
@@ -53,7 +51,6 @@ class F16 extends Aircraft{
     this.baseDemage = 30;
     this.priority = false;
   }
-
 }
 
 class F35 extends Aircraft{
@@ -65,10 +62,6 @@ class F35 extends Aircraft{
     this.baseDemage = 50;
     this.priority = true;
   }
-
 }
-
-
-
 
 export {Aircraft, F16, F35};
