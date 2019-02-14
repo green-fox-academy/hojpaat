@@ -26,6 +26,24 @@ function countNumber(data: string[][]): any{
 return lottoNumberFrequency;
 }
 
+function mostFrequent(freqencies: object){
+  let searchedChar: string[] = [];
+  let mostFrequent: string = undefined;
+  let biggestFrequency = 0;
+  let options: string[] = [];
+  for(let i: number = 1; i < 91; i++){
+    options.push(i.toString());
+    
+    if (freqencies[options[i - 1]] > biggestFrequency){
+      biggestFrequency = freqencies[options[i - 1]];
+      mostFrequent = options[i - 1];
+  }
+}
+return searchedChar.push(mostFrequent);
+}
+
 let lottoNumberArray = getLotteryNumber(readFile('lotteryNumbers.txt'));
 
-console.log(countNumber(lottoNumberArray));
+let frequency: object = countNumber(lottoNumberArray);
+
+mostFrequent(frequency);
