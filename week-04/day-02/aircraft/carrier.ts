@@ -61,13 +61,12 @@ class Carrier {
   }
 
   getStatus() {
-    if (this.ammo <= 0) {
+    if (this.hp <= 0) {
       console.log('It\'s dead Jim :(');
     } else {
-      // this.calculateAllDemage();
-      console.log(`HP: ${this.hp}, Aircraft count: ${this.aircrafts.length}, Ammo storage: ${this.fill}, total damage ${this.allDemage}`);
-
-      this.aircrafts.forEach(value => console.log(``));
+      this.calculateAllDemage();
+      console.log(`HP: ${this.hp}, Aircraft count: ${this.aircrafts.length}, Ammo storage: ${this.ammo}, total damage ${this.allDemage}`);
+      this.aircrafts.forEach(value => console.log(value.getStatus()));
     };
   }
 
@@ -90,9 +89,10 @@ let enemy = new Carrier(300, 1000);
 enemy.addAircraft(one4);
 enemy.addAircraft(one5);
 
+test.getStatus();
 
-test.fight(enemy);
-console.log(test.hp, enemy.hp);
+// test.fight(enemy);
+// console.log(test.hp, enemy.hp);
 
 
 
