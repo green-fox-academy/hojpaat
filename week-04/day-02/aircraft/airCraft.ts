@@ -20,9 +20,9 @@ class Aircraft{
   }
 
   fight(){
-    let d = this.baseDemage * this.ammo;
+    this.allDem = this.ammo * this.baseDemage;
     this.ammo = 0;
-    return this.allDem = d;
+    return this.allDem;
   }
 
     refill(allAmmo: number){
@@ -56,11 +56,11 @@ class F16 extends Aircraft{
 
 }
 
-class F30 extends Aircraft{
+class F35 extends Aircraft{
   
   constructor(){
     super();
-    this.type = 'F30';
+    this.type = 'F35';
     this.maxAmmo = 12;
     this.baseDemage = 50;
     this.priority = true;
@@ -71,4 +71,4 @@ class F30 extends Aircraft{
 
 
 
-export {Aircraft, F16, F30};
+export {Aircraft, F16, F35};
