@@ -50,11 +50,11 @@ class Garden {
 }
 
 let secretGarden = new Garden(initializeGarden());
-// secretGarden.waterGarden(0);
-// secretGarden.waterGarden(40);
-// secretGarden.waterGarden(70);
+secretGarden.waterGarden(0);
+secretGarden.waterGarden(40);
+secretGarden.waterGarden(70);
 
-console.log(secretGarden);
+// console.log(secretGarden);
 
 
 
