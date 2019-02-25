@@ -7,24 +7,29 @@ body {
   margin: 20px;
 }
 
-nav {
+#header{
   width: 100%;
+  height: 80px;
+  background: grey;
   position: sticky;
   top: 20px;
+}
+
+nav {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 nav > ul {
   list-style: none;
 }
-
-.container{
-  width: 100%;
-  height: 80px;
-  background: grey;
-  display: flex;
-  align-items: center;
-}
-
 .menu {
   height: 40px;
   width: 100px;
@@ -33,7 +38,15 @@ nav > ul {
 
 }
 
-
+#viewer {
+  width: 100%;
+  height: 800px;
+  background: red;
+  display: flexbox;
+  justify-content: center;
+  align-content: center;
+}
+/* 
 #main {
   width: 100%;
   height: 800px;
@@ -49,4 +62,4 @@ nav > ul {
 .sidebar {
   background: orange;
   flex-grow: 2;
-}
+} */
