@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+}
+
+nav > ul {
+  list-style: none;
+}
+
+.container{
+  width: 100%;
+  height: 80px;
+  background: grey;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  height: 30px;
+  width: 100px;
+  background: rgb(137, 137, 241);
+  margin: 10px;
+
+}
