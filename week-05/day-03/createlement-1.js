@@ -9,7 +9,17 @@
 
 var asteroids = document.querySelector('ul.asteroids');
 
-var newLi = document.createElement('li')
-newLi.innerText = 'Green Fox';
+var newLi = document.createElement('li');
+newLi.innerText = 'The Green Fox';
 asteroids.appendChild(newLi);
-console.log(asteroids);
+
+var newLi2 = document.createElement('li');
+newLi2.innerText = 'The Lamplighter';
+asteroids.insertBefore(newLi2, asteroids.children[0]);
+
+var heading = document.createElement('h1');
+heading.innerText = 'I can add elements to the DOM!'
+
+var container = document.getElementsByClassName('container')[0];
+
+container.appendChild(heading);
