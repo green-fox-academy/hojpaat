@@ -24,6 +24,29 @@ const kids = [
 
 var pets = document.getElementById('pets');
 
-for(var i = 0; i < kids.length; i++){
-  pets.appendChild(document.createElement('article'));
+function articleNew() {
+  var test = document.createElement('article');
+  test.innerHTML = '<h3></h3><p></p>';
+  return test;
 }
+
+var h3Tag = document.createElement('h3');
+var pTag = document.createElement('p');
+console.log(h3Tag);
+console.log(articleNew);
+
+
+for(var i = 0; i < kids.length; i++){
+  pets.appendChild(articleNew());
+}
+
+var articles = document.querySelectorAll('article');
+
+// articles.forEach((element, index) => {
+//   element.children[0].innerText = pets[index].owner;
+// })
+article[0].children[0].innerText
+console.log(articles[0].children[0])
+
+
+
