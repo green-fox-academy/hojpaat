@@ -21,3 +21,5 @@ if(paragraphs[3].classList.contains('dolphin') === true){
 if(paragraphs[0].classList.contains('apple') === true){
 cat.forEach(element => element.innerText = 'dog')
 };
+
+apple.forEach(element => element.classList.add('red'));
