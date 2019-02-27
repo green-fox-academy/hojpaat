@@ -48,9 +48,12 @@ planetData.forEach(element => {
 
 for(var i = 0; i < asteroidList.length; i++){
   var asteroid = document.createElement('li');
+  asteroid.setAttribute('class', planetData[i].category)
   asteroid.innerText = asteroidList[i];
   ul.appendChild(asteroid);
 }
+
+
 
 console.log(asteroidList);
 
