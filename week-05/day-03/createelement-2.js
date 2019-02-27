@@ -38,15 +38,21 @@ var ul = document.getElementsByTagName('ul')[0];
 var childRemove = ul.children[0];
 ul.removeChild(childRemove);
 
-var asteroids = [];
+var asteroidList = [];
 planetData.forEach(element => {
   if(element.asteroid === true){
-    asteroids.push(element.content);
+    asteroidList.push(element.content);
   };
 }
 )
 
-console.log(asteroids);
+for(var i = 0; i < asteroidList.length; i++){
+  var asteroid = document.createElement('li');
+  asteroid.innerText = asteroidList[i];
+  ul.appendChild(asteroid);
+}
+
+console.log(asteroidList);
 
 
 
