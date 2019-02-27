@@ -15,3 +15,9 @@ imgUrl.setAttribute('width', '100px')
 var aUrl =document.querySelector('a');
 aUrl.setAttribute('target', '_blank')
 aUrl.href = 'https://www.greenfoxacademy.com/';
+
+var disableButton = document.querySelector('.this-one');
+disableButton.setAttribute('disabled', true);
+disableButton.innerText = 'Don\'t click me!';
+console.log(disableButton);
+
