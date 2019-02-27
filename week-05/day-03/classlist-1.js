@@ -10,9 +10,14 @@
 
 var paragraphs = document.getElementsByTagName('p');
 var apple = document.querySelectorAll('.apple');
+var cat = document.querySelectorAll('.cat');
 
 if(paragraphs[3].classList.contains('dolphin') === true){
   apple.forEach(element => {
     element.innerText = 'pear'
   })
-}
+};
+
+if(paragraphs[0].classList.contains('apple') === true){
+cat.forEach(element => element.innerText = 'dog')
+};
