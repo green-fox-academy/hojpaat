@@ -23,3 +23,10 @@ heading.innerText = 'I can add elements to the DOM!'
 var container = document.getElementsByClassName('container')[0];
 
 container.appendChild(heading);
+
+var imgFox = document.createElement('img')
+imgFox.src = 'https://i.pinimg.com/originals/58/32/b5/5832b5b725c5fa9eaf67554e1e0f9c7e.jpg';
+imgFox.setAttribute('width', '150px');
+container.appendChild(imgFox);
+
+
