@@ -18,7 +18,11 @@ var asteroids = document.getElementsByClassName('asteroid');
 var conceitedKing = [asteroids[0], asteroids[1]];
 
 console.log('conceitedKing');
-logArray(conceitedKing)
+
+for (let i = 0; i < conceitedKing.length; i++) {
+  alert(conceitedKing[i].innerText);
+  ;
+};
 
 var noBusiness = [];
 
