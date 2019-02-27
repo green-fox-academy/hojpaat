@@ -30,4 +30,3 @@ for (var i = 0; i < asteroids.length; i++) {
 console.log('noBusiness');
 logArray(noBusiness);
 
-
