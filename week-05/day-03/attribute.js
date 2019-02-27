@@ -11,3 +11,7 @@
 var imgUrl = document.getElementsByTagName('img')[0];
 imgUrl.src = 'https://ih1.redbubble.net/image.208490752.9756/pp,550x550.u2.jpg';
 imgUrl.setAttribute('width', '100px')
+
+var aUrl =document.querySelector('a');
+aUrl.setAttribute('target', '_blank')
+aUrl.href = 'https://www.greenfoxacademy.com/';
