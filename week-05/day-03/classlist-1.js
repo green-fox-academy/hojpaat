@@ -23,3 +23,7 @@ cat.forEach(element => element.innerText = 'dog')
 };
 
 apple.forEach(element => element.classList.add('red'));
+
+var balloon = document.querySelectorAll('.balloon');
+
+balloon.forEach(element => element.setAttribute('style', 'border-radius: 20%'));
