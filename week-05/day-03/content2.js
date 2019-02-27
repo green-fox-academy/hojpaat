@@ -6,9 +6,15 @@
 
 var contentList = ['apple', 'banana', 'cat', 'dog'];
 
-var list = document.querySelectorAll('ul > li');
+var listPoints = document.querySelectorAll('ul > li');
 
-list.forEach((element, index) => {
+listPoints.forEach((element, index) => {
   element.innerText = contentList[index];
 })
+
+var list = document.getElementsByTagName('ul')[0];
+
+
+// list.style.backgroundColor = 'limegreen';
+list.setAttribute('class', 'limeBackground');
 
