@@ -42,10 +42,11 @@ for(var i = 0; i < kids.length; i++){
 
 var articles = document.querySelectorAll('article');
 
-// articles.forEach((element, index) => {
-//   element.children[0].innerText = pets[index].owner;
-// })
-article[0].children[0].innerText
+articles.forEach((element, index) => {
+  element.children[0].innerText = kids[index].owner;
+  element.children[1].innerText = kids[index].petName;
+})
+// articles[0].children[0].innerText = 'red'
 console.log(articles[0].children[0])
 
 
