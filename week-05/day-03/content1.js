@@ -6,7 +6,7 @@
 
 var paragraphs = document.querySelectorAll('p');
 
-/*paragraphs.forEach(element => element.innerText = paragraphs[paragraphs.length - 1].innerText);*/
+// paragraphs.forEach(element => element.innerText = paragraphs[paragraphs.length - 1].innerText);
 
 
 paragraphs.forEach(element => element.innerHTML = paragraphs[paragraphs.length - 1].innerHTML);
