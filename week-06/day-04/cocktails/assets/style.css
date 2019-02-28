@@ -1,0 +1,27 @@
+* {
+  margin: 5px;
+  padding: 0;
+}
+
+body {
+  background: pink;
+}
+
+  .menuBar > ul{
+
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .menu{
+    color: rgb(61, 154, 177);
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    list-style: none;
+    padding: 10px;
+  }
+
+  .menu:hover{
+    background: tomato;
+  }

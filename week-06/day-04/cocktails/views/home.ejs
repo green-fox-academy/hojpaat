@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel='stylesheet' href='/assets/style.css' type='text/css'>
   <title>Document</title>
 </head>
 <body>
@@ -9,14 +10,13 @@
 
   <h1>Cocktails</h1>
 
-  <nav>
+  <nav class='menuBar'>
     <ul>
     <% for(let i = 0; i < alcohols.length; i++){%>
-      <li><%= alcohols[i] %></li>
+      <li class='menu'><%= alcohols[i] %></li>
     <%}%>
     </ul>
   </nav>
-  
   </div>
 
   <div class='alcoholTable'>
