@@ -40,3 +40,7 @@
 .arrow:hover{
   color: rgb(146, 146, 146);
 }
+
+.arrow:active{
+  border: none;
+}
