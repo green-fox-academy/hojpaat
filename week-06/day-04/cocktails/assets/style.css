@@ -17,11 +17,6 @@ body {
 }
 
 
-li{
-  list-style: none;
-  padding: 5px;
-  text-align: center;
-}
 
 .menu{
   color: rgb(61, 154, 177);
@@ -34,10 +29,10 @@ li{
 .menu:hover{
   background: tomato;
 }
-  
+
   .table{
-  width:50%;
-  margin: auto;
+    width:50%;
+    margin: auto;
   background: grey;
   display: flex;
   justify-content: space-around;
@@ -49,13 +44,28 @@ li{
   background: lightskyblue;
 }
 
-.cocktailListLeft{
+li{
+  list-style: none;
+  padding: 5px;
+  text-align: center;
+}
+
+.lightL, .darkL  {
   text-align: left;
+}
+
+.lightL, .lightR{
+  background: whitesmoke;
+}
+
+.darkL, .darkR{
+  background: lightslategray
 }
 
 .tableHead {
   background: black;
   color: white;
+  text-align: center;
 }
 
 

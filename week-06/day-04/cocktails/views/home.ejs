@@ -24,9 +24,9 @@
   <div class = 'left'>
 
     <ul>
-    <li class='tableHead'>Name<li>
+    <li class='tableHead'>Name</li>
     <% for( let i= 0; i < selection.length; i++) { %>
-      <li class='cocktailListLeft'><%=selection[i].name%></li>
+      <li class = <%=color[0][i % 2]%>><%=selection[i].name%></li>
   <% } %>
     </ul>
   </div>
@@ -34,9 +34,9 @@
 
   <div class = 'right'>
   <ul>
-  <li class='tableHead'>Price<li>
+  <li class='tableHead'>Price</li>
   <% for( let i= 0; i < selection.length; i++) { %>
-    <li class='cocktailListRight' <%=color[i % 2]%><%=selection[i].price%></li>
+    <li class = <%=color[1][i % 2]%>><%=selection[i].price%></li>
   <% } %>
   </ul>
 

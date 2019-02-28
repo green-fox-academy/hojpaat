@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   res.render('home', {
     selection: neededCocktails,
     alcohols: alcoholList,
-    color: ['light', 'dark']})
+    color: [["lightL", 'darkL'], ['lightR', 'darkR']]})
 })
 
 app.listen(PORT, (req, res) => {
