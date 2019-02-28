@@ -30,4 +30,13 @@
   width: 80px;
   height: 360px;
   background: whitesmoke;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(75, 75, 75);
+}
+
+.arrow:hover{
+  color: rgb(146, 146, 146);
 }
