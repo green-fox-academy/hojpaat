@@ -28,8 +28,10 @@ app.get('/', (req, res) => {
   console.log(alcohol);
   let neededCocktails = undefined;
   if(alcoholList.indexOf(alcohol) >= 0){
-    neededCocktails = moduls.selectCocktail(alcohol, cocktails);}else{
+    neededCocktails = moduls.selectCocktail(alcohol, cocktails);}else if(alcohol === undefined){
     neededCocktails = cocktails;
+  }else{
+    neededCocktails = [{name: 'We run out of it :('}];
   }
   res.render('home', {selection: neededCocktails})
 })
