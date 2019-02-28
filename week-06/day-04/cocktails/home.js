@@ -1,6 +1,6 @@
 'use strict';
+const moduls = require('./assets/functions.js')
 
-import{ selecCocktails } from './functions'
 
 const express = require('express');
 const app = express();
@@ -20,12 +20,14 @@ const cocktails = [
 
 const alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
 
-
-
+app.use('/assets', express.static('assets'))
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('home');
+  let alcohol = req.query.alcohol;
+  console.log(alcohol);
+  let neededCocktails = moduls.selectCocktail(alcohol, cocktails);
+  res.render('home', {selection: neededCocktails})
 })
 
 app.listen(PORT, (req, res) => {
