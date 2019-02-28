@@ -1,0 +1,714 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.15 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ^C
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE TODOAPP
+    -> ;
+Query OK, 1 row affected (0.16 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| todoapp            |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> USE todoapp
+Database changed
+mysql> checkdb
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'checkdb' at line 1
+mysql> DB_NAME
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DB_NAME' at line 1
+mysql> DB_NAME()
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DB_NAME()' at line 1
+mysql> help
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+
+For server side help, type 'help contents'
+
+mysql> \s
+--------------
+C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe  Ver 8.0.15 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+Connection id:          11
+Current database:       todoapp
+Current user:           root@localhost
+SSL:                    Cipher in use is DHE-RSA-AES128-GCM-SHA256
+Using delimiter:        ;
+Server version:         8.0.15 MySQL Community Server - GPL
+Protocol version:       10
+Connection:             localhost via TCP/IP
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    cp852
+Conn.  characterset:    cp852
+TCP port:               3306
+Uptime:                 2 hours 2 min 28 sec
+
+Threads: 4  Questions: 82  Slow queries: 0  Opens: 195  Flush tables: 2  Open tables: 171  Queries per second avg: 0.011
+--------------
+
+mysql> CREATE TABLE persons (
+    -> id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(30) NOT NULL);
+Query OK, 0 rows affected (0.47 sec)
+
+mysql> SHOW TABLES
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
++-------------------+
+1 row in set (0.06 sec)
+
+mysql> INSERT INTO persons("Tom");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"Tom")' at line 1
+mysql> INSERT INTO persons(name) VALUES ("TOM");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> SELECT * FROM persons
+    -> ;
++----+------+
+| id | name |
++----+------+
+|  1 | TOM  |
++----+------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO persons(name) VALUES ("Anne");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO persons(name) VALUES ("Pete");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> SELECT * FROM persons
+    -> ;
++----+------+
+| id | name |
++----+------+
+|  1 | TOM  |
+|  2 | Anne |
+|  3 | Pete |
++----+------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE persons SET name = "Tom" WHERE name = "TOM";
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM persons;
++----+------+
+| id | name |
++----+------+
+|  1 | Tom  |
+|  2 | Anne |
+|  3 | Pete |
++----+------+
+3 rows in set (0.00 sec)
+
+mysql> CREAT TABLE tasks (
+    -> taksID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> personID INT NOT NULL,
+    -> task VARCHAR(30) NOT NULL,
+    -> task VARCHAR(30) NOT NULL,^C
+mysql> SHOW TABLES
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> CREAT TABLE tasks (
+    -> taskID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> personID INT NOT NULL,
+    -> task VARCHAR(30) NOT NULL,
+    -> FOREIGN KEY (personID) REFERENCES persons (id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREAT TABLE tasks (
+taskID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+personID INT' at line 1
+mysql> CREAT TABLE tasks (
+    -> taksID INT NOT NULL AUTO_INCREMENT,
+    -> personID INT NOT NULL,
+    -> task VARCHAR(30) NOT NULL,
+    -> FOREIGN KEY (personID) REFERENCES persons (id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREAT TABLE tasks (
+taksID INT NOT NULL AUTO_INCREMENT,
+personID INT NOT NULL,
+t' at line 1
+mysql> clear
+mysql> help;
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+
+For server side help, type 'help contents'
+
+mysql> \c
+mysql> CREATE TABLE tasks (
+    -> taskID INT NOT NULL AUTO_INCREMENT,
+    -> personID NOT NULL,
+    -> task VARCHAR(30) NOT NULL,
+    -> \c
+mysql> SHOW TABLES
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE tasks (
+    -> taskID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> personID INT NOT NULL,
+    -> task VARCHAR(30) NOT NULL,
+    -> FOREIGN KEY (personID) REFERENCES persons (id)
+    -> );
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
+| tasks             |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM tasks
+    -> ;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO tasks(personID, task) VALUES (1, "Feed dog");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SELECT * FROM tasks
+    -> ;
++--------+----------+----------+
+| taskID | personID | task     |
++--------+----------+----------+
+|      1 |        1 | Feed dog |
++--------+----------+----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO tasks(personID, task) VALUES (3, "Clean Bathroom");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO tasks(personID, task) VALUES (2, "Clean Bathroom");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO tasks(personID, task) VALUES (1, "Do shopping");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> SELECT * FROM tasks
+    -> ;
++--------+----------+----------------+
+| taskID | personID | task           |
++--------+----------+----------------+
+|      1 |        1 | Feed dog       |
+|      2 |        3 | Clean Bathroom |
+|      3 |        2 | Clean Bathroom |
+|      4 |        1 | Do shopping    |
++--------+----------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> CREAT TABLE chores (
+    -> Day CHAR(2) NOT NULL,
+    -> \c
+mysql> DELETE personID FFROM tasks
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FFROM tasks' at line 1
+mysql> DELETE personID FROM tasks;
+ERROR 1109 (42S02): Unknown table 'personid' in MULTI DELETE
+mysql> DELETE personID FROM tasks;\c
+ERROR 1109 (42S02): Unknown table 'personid' in MULTI DELETE
+mysql> ALTER TABLE tasks DROP personID;
+ERROR 1828 (HY000): Cannot drop column 'personID': needed in a foreign key constraint 'tasks_ibfk_1'
+mysql> DELETE FROM tasks
+    -> ;
+Query OK, 4 rows affected (0.12 sec)
+
+mysql> SHOW TABLES
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
+| tasks             |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> DROP TABLE tasks;
+Query OK, 0 rows affected (2.97 sec)
+
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE tasks (
+    -> taskID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> task VARCHAR(30) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.45 sec)
+
+mysql> INSERT INTO task(task) VALUES ("Clean bathroom");
+ERROR 1146 (42S02): Table 'todoapp.task' doesn't exist
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
+| tasks             |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO tasks(task) VALUES ("Clean bathroom");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO tasks(task) VALUES ("Clean kitchen");
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO tasks(task) VALUES ("Cooking");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO tasks(task) VALUES ("Feed the dog");
+Query OK, 1 row affected (0.12 sec)
+
+mysql> SELECT * from tasks
+    -> ;
++--------+----------------+
+| taskID | task           |
++--------+----------------+
+|      1 | Clean bathroom |
+|      2 | Clean kitchen  |
+|      3 | Cooking        |
+|      4 | Feed the dog   |
++--------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE chores (
+    -> day CHAR(2),
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 5
+mysql> CREATE TABLE chores (
+    -> day CHAR(2) NOT NULL,
+    -> personID INT NOT NULL,
+    -> \C
+ERROR:
+Usage: \C charset_name | charset charset_name
+    -> ^C
+mysql> CREATE TABLE chores (
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| chores            |
+| persons           |
+| tasks             |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO chores(^C
+mysql> DROP TABLE chores;
+Query OK, 0 rows affected (0.50 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| persons           |
+| tasks             |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE chores (
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| chores            |
+| persons           |
+| tasks             |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM tasks;
++--------+----------------+
+| taskID | task           |
++--------+----------------+
+|      1 | Clean bathroom |
+|      2 | Clean kitchen  |
+|      3 | Cooking        |
+|      4 | Feed the dog   |
++--------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> DROP TABLE chores;
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> CREATE TABLE chores (
+    -> day CHAR(2),
+    -> taskID INT^C
+mysql> CREATE TABLE chores (
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> DROP TABLE chores;
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> CREATE TABLE chores)
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL,
+    -> done BOOLEAN,
+    -> FOREING KEY (taskID) REFERENCES tasks(taskID),
+    -> FOREING KEY (personID) REFERENCES persons(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+day CHAR(2) NOT NULL,
+taskID INT NOT NULL,
+personID INT NOT NULL,
+done BOOLEAN' at line 1
+mysql> CREATE TABLE chores(
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL,
+    -> done BOOLEAN,
+    -> FOREING KEY (taskID) REFERENCES tasks(taskID),
+    -> FOREING KEY (personID) REFERENCES persons(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'KEY (taskID) REFERENCES tasks(taskID),
+FOREING KEY (personID) REFERENCES persons' at line 6
+mysql> CREATE TABLE chores(
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL,
+    -> done BOOLEAN,
+    -> FOREIGN KEY (taskID) REFERENCES tasks(taskID),
+    -> FOREIGN KEY (personID) REFERENCES persons(id)
+    -> );
+Query OK, 0 rows affected (0.65 sec)
+
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| chores            |
+| persons           |
+| tasks             |
++-------------------+
+3 rows in set (0.05 sec)
+
+mysql> INSERT INTO chores(day, taskID, personID, done) VALUES ("MO", 2, 1, FALSE);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from chores;
++-----+--------+----------+------+
+| day | taskID | personID | done |
++-----+--------+----------+------+
+| MO  |      2 |        1 |    0 |
++-----+--------+----------+------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO chores(day, taskID, personID, done) VALUES ("TU", 5, 1, FALSE);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`todoapp`.`chores`, CONSTRAINT `chores_ibfk_1` FOREIGN KEY (`taskID`) REFERENCES `tasks` (`taskID`))
+mysql> INSERT INTO chores(day, taskID, personID, done) VALUES ("TU", 5, 1, FALSE);^C
+mysql> ALTER TABLE chores DROP CONSTRAINT taskID;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT taskID' at line 1
+mysql> ALTER TABLE chores DROP CONSTRAINT personID;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT personID' at line 1
+mysql> DELETE * FROM chores;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM chores' at line 1
+mysql> DELETE FROM chores;
+Query OK, 1 row affected (0.11 sec)
+
+mysql> ALTER TABLE chores DROP CONSTRAINT taskID;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT taskID' at line 1
+mysql> SELECT 'ALTER TABLE' + chores + 'DROP CONSTRAINT' + 'FOREIGNE KEY'
+    -> FROM Iformation_Schema.CONSTRAINT_TABLE_USAGE;
+ERROR 1049 (42000): Unknown database 'iformation_schema'
+mysql> ALTER TABLE chores DROP FOREIGN KEY personID;
+ERROR 1091 (42000): Can't DROP 'personID'; check that column/key exists
+mysql> descripbe chores
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'descripbe chores' at line 1
+mysql> show columns from chores;
++----------+------------+------+-----+---------+-------+
+| Field    | Type       | Null | Key | Default | Extra |
++----------+------------+------+-----+---------+-------+
+| day      | char(2)    | NO   |     | NULL    |       |
+| taskID   | int(11)    | NO   | MUL | NULL    |       |
+| personID | int(11)    | NO   | MUL | NULL    |       |
+| done     | tinyint(1) | YES  |     | NULL    |       |
++----------+------------+------+-----+---------+-------+
+4 rows in set (0.11 sec)
+
+mysql> DROP TABLE chores;
+Query OK, 0 rows affected (0.58 sec)
+
+mysql> CREATE TABLE chores (
+    -> day CHAR(2) NO NULL,
+    -> taskID INT NO NULL,
+    -> personID INT NO NULL,
+    -> done BOOLEAN DEFAULT FALSE
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NO NULL,
+taskID INT NO NULL,
+personID INT NO NULL,
+done BOOLEAN DEFAULT FALSE
+)' at line 2
+mysql> );^C
+mysql> CREATE TABLE chores (
+    -> day CHAR(2) NOT NULL,
+    -> taskID INT NOT NULL,
+    -> personID INT NOT NULL,
+    -> done BOOLEAN DEFAULT FALSE
+    -> );
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_todoapp |
++-------------------+
+| chores            |
+| persons           |
+| tasks             |
++-------------------+
+3 rows in set (0.08 sec)
+
+mysql> INSERT INTO chores(day, taskID, personID) VALUES ("MO", 2, 2);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> SELECT * FROM chores;
++-----+--------+----------+------+
+| day | taskID | personID | done |
++-----+--------+----------+------+
+| MO  |      2 |        2 |    0 |
++-----+--------+----------+------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO chores(day, taskID, personID) VALUES ("WE", 2, 3);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO chores(day, taskID, personID) VALUES ("TU", 3, 1);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> SELECT * FROM chores;
++-----+--------+----------+------+
+| day | taskID | personID | done |
++-----+--------+----------+------+
+| MO  |      2 |        2 |    0 |
+| WE  |      2 |        3 |    0 |
+| TU  |      3 |        1 |    0 |
++-----+--------+----------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT name, task FROM persons LEFT JOIN chores ON persons.idd = chores.personID
+    -> LEFT JOIN tasks ON chores.taskID = tasks.taskID;
+ERROR 1054 (42S22): Unknown column 'persons.idd' in 'on clause'
+mysql> SELECT name, task FROM persons LEFT JOIN chores ON persons.id = chores.personID
+    -> LEFT JOIN tasks ON chores.taskID = tasks.taskID;
++------+---------------+
+| name | task          |
++------+---------------+
+| Anne | Clean kitchen |
+| Pete | Clean kitchen |
+| Tom  | Cooking       |
++------+---------------+
+3 rows in set (0.07 sec)
+
+mysql> SELECT day, name, task, done FROM persons LEFT JOIN chores ON persons.id = chores.personID
+    -> LEFT JOIN tasks ON chores.taskID = tasks.taskID;
++------+------+---------------+------+
+| day  | name | task          | done |
++------+------+---------------+------+
+| MO   | Anne | Clean kitchen |    0 |
+| WE   | Pete | Clean kitchen |    0 |
+| TU   | Tom  | Cooking       |    0 |
++------+------+---------------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT day, name, task, done FROM persons LEFT JOIN chores ON persons.id = chores.personID
+    -> LEFT JOIN tasks ON chores.taskID = tasks.taskID
+    -> ORDER BY done;
++------+------+---------------+------+
+| day  | name | task          | done |
++------+------+---------------+------+
+| MO   | Anne | Clean kitchen |    0 |
+| WE   | Pete | Clean kitchen |    0 |
+| TU   | Tom  | Cooking       |    0 |
++------+------+---------------+------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE chores SET done = TRUE WHERE personID = 1;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM chores;
++-----+--------+----------+------+
+| day | taskID | personID | done |
++-----+--------+----------+------+
+| MO  |      2 |        2 |    0 |
+| WE  |      2 |        3 |    0 |
+| TU  |      3 |        1 |    1 |
++-----+--------+----------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT day, name, task, done FROM persons LEFT JOIN chores ON persons.id = chores.personID
+    -> LEFT JOIN tasks ON chores.taskID = tasks.taskID
+    -> ORDER BY done;
++------+------+---------------+------+
+| day  | name | task          | done |
++------+------+---------------+------+
+| MO   | Anne | Clean kitchen |    0 |
+| WE   | Pete | Clean kitchen |    0 |
+| TU   | Tom  | Cooking       |    1 |
++------+------+---------------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT day, name, task, done FROM persons LEFT JOIN chores ON persons.id = chores.personID
+    -> LEFT JOIN tasks ON chores.taskID = tasks.taskID
+    -> ORDER BY done DESC;
++------+------+---------------+------+
+| day  | name | task          | done |
++------+------+---------------+------+
+| TU   | Tom  | Cooking       |    1 |
+| MO   | Anne | Clean kitchen |    0 |
+| WE   | Pete | Clean kitchen |    0 |
++------+------+---------------+------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM chores WHERE done = TRUE
+    -> SELECT * FROM chores;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT * FROM chores' at line 2
+mysql> DELETE FROM chores WHERE done = TRUE;
+Query OK, 1 row affected (0.13 sec)
+
+mysql> SELECT * FROM chores;
++-----+--------+----------+------+
+| day | taskID | personID | done |
++-----+--------+----------+------+
+| MO  |      2 |        2 |    0 |
+| WE  |      2 |        3 |    0 |
++-----+--------+----------+------+
+2 rows in set (0.00 sec)
+
+mysql>
