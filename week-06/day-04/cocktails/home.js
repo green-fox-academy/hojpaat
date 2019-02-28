@@ -26,7 +26,11 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   let alcohol = req.query.alcohol;
   console.log(alcohol);
-  let neededCocktails = moduls.selectCocktail(alcohol, cocktails);
+  let neededCocktails = undefined;
+  if(alcoholList.indexOf(alcohol) >= 0){
+    neededCocktails = moduls.selectCocktail(alcohol, cocktails);}else{
+    neededCocktails = cocktails;
+  }
   res.render('home', {selection: neededCocktails})
 })
 
