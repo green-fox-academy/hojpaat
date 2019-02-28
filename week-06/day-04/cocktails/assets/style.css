@@ -24,6 +24,7 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   padding: 10px;
+  border: none;
 }
 
 .menu:hover{
@@ -31,7 +32,7 @@ body {
 }
 
   .table{
-    width:50%;
+    width:70%;
     margin: auto;
   background: grey;
   display: flex;
@@ -40,8 +41,7 @@ body {
 
 .left, .right{
   height: auto;
-  width: 50%;
-  background: lightskyblue;
+  flex-grow: 1;
 }
 
 li{
@@ -54,18 +54,31 @@ li{
   text-align: left;
 }
 
+
+
 .lightL, .lightR{
   background: whitesmoke;
+  border: solid white 1px;
+  height: 50px;
 }
 
 .darkL, .darkR{
-  background: lightslategray
+  background: lightslategray;
+  border: solid white 1px;
+  height: 50px;
 }
 
 .tableHead {
   background: black;
   color: white;
+  text-transform: uppercase;
+  font-weight: bold;
   text-align: center;
+  border-left: solid white 1px;
+}
+
+h2{
+  font-size: 16px;
 }
 
 

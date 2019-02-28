@@ -26,7 +26,9 @@
     <ul>
     <li class='tableHead'>Name</li>
     <% for( let i= 0; i < selection.length; i++) { %>
-      <li class = <%=color[0][i % 2]%>><%=selection[i].name%></li>
+      <li class = <%=color[0][i % 2]%>>
+      <h2><%=selection[i].name %></h2>
+      <p><%= selection[i].contains %><p></li>
   <% } %>
     </ul>
   </div>
@@ -36,7 +38,8 @@
   <ul>
   <li class='tableHead'>Price</li>
   <% for( let i= 0; i < selection.length; i++) { %>
-    <li class = <%=color[1][i % 2]%>><%=selection[i].price%></li>
+    <li class = <%=color[1][i % 2]%>>
+    <h2><%=selection[i].price%> Ft</h2></li>
   <% } %>
   </ul>
 
