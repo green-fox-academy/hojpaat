@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main{
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(rgb(160,160, 160), rgb(50, 50, 50));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#album{
+  box-shadow: -3px 5px 10px 4px rgb(48, 48, 48);
+  height: 360px;
+  width: 800px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.picture{
+  width: 640px;
+  height: 360px;
+  background: palevioletred;
+}
+
+.arrow{
+  width: 80px;
+  height: 360px;
+  background: whitesmoke;
+}
