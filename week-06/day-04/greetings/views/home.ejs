@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Welcome back 
+    <% if(qs.name === undefined) { %>
+      guest
+      <% }else { %>
+        <%= qs.name %>
+
+    <% } %> !</h1>
+</body>
+</html>
