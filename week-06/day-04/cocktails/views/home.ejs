@@ -19,12 +19,30 @@
   </nav>
   </div>
 
-  <div class='alcoholTable'>
-  <ul>
-  <% for( let i= 0; i < selection.length; i++) { %>
-    <li><%=selection[i].name%></li>
-<% } %>
-  </ul>
+<div class='table'>
+
+  <div class = 'left'>
+
+    <ul>
+    <li class='tableHead'>Name<li>
+    <% for( let i= 0; i < selection.length; i++) { %>
+      <li class='cocktailListLeft'><%=selection[i].name%></li>
+  <% } %>
+    </ul>
   </div>
+
+
+  <div class = 'right'>
+  <ul>
+  <li class='tableHead'>Price<li>
+  <% for( let i= 0; i < selection.length; i++) { %>
+    <li class='cocktailListRight' <%=color[i % 2]%><%=selection[i].price%></li>
+  <% } %>
+  </ul>
+
+  </div>
+</div>
+
+
 </body>
 </html>

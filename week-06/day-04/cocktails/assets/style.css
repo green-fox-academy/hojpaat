@@ -1,27 +1,62 @@
 * {
-  margin: 5px;
+  margin: 0;
   padding: 0;
 }
 
 body {
+  margin: 5px;
+  padding: 20px 50px;
   background: pink;
+  align-items: center;
 }
 
-  .menuBar > ul{
+.menuBar > ul{
 
-    display: flex;
-    justify-content: space-evenly;
-  }
+  display: flex;
+  justify-content: space-evenly;
+}
 
-  .menu{
-    color: rgb(61, 154, 177);
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
-    list-style: none;
-    padding: 10px;
-  }
 
-  .menu:hover{
-    background: tomato;
-  }
+li{
+  list-style: none;
+  padding: 5px;
+  text-align: center;
+}
+
+.menu{
+  color: rgb(61, 154, 177);
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.menu:hover{
+  background: tomato;
+}
+  
+  .table{
+  width:50%;
+  margin: auto;
+  background: grey;
+  display: flex;
+  justify-content: space-around;
+}
+
+.left, .right{
+  height: auto;
+  width: 50%;
+  background: lightskyblue;
+}
+
+.cocktailListLeft{
+  text-align: left;
+}
+
+.tableHead {
+  background: black;
+  color: white;
+}
+
+
+
