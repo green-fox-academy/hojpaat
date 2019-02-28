@@ -5,11 +5,26 @@
   <title>Document</title>
 </head>
 <body>
-  <p>This</p>
+  <div id='header'>
+
+  <h1>Cocktails</h1>
+
+  <nav>
+    <ul>
+    <% for(let i = 0; i < alcohols.length; i++){%>
+      <li><%= alcohols[i] %></li>
+    <%}%>
+    </ul>
+  </nav>
+  
+  </div>
+
+  <div class='alcoholTable'>
   <ul>
   <% for( let i= 0; i < selection.length; i++) { %>
     <li><%=selection[i].name%></li>
 <% } %>
   </ul>
+  </div>
 </body>
 </html>

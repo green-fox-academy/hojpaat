@@ -33,7 +33,9 @@ app.get('/', (req, res) => {
   }else{
     neededCocktails = [{name: 'We run out of it :('}];
   }
-  res.render('home', {selection: neededCocktails})
+  res.render('home', {
+    selection: neededCocktails,
+    alcohols: alcoholList})
 })
 
 app.listen(PORT, (req, res) => {
