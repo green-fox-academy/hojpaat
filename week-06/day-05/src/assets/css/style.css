@@ -87,4 +87,9 @@ body{
 
 .thumbnailPic img{
   height: 60px;
+  opacity: 0.5;
+}
+
+.thumbnailPic img:hover{
+  opacity: 1;
 }

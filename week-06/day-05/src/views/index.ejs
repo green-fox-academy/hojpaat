@@ -18,8 +18,10 @@
   </div>
   
   <ul class = 'thumbnail'>
-  <li class = 'thumbnailPic'><a href= 'assets/images/img01.jpg' target = 'picture'><img src='assets/images/img01.jpg'></a></li>
-  <li class = 'thumbnailPic'><a href= 'assets/images/img01.jpg' target = 'picture'><img src='assets/images/img01.jpg'></a></li>
+  <% for( let i = 0; i < photos.length; i++) { %>
+    <li class = 'thumbnailPic'><a href = <%= photos[i] %> target = 'picture'><img src = <%= photos[i] %> alt = <%= description[i] %> ></a></li>
+  <% } %>
+  
   </ul>
 
   </div>
