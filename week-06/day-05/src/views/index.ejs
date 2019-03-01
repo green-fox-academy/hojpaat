@@ -12,14 +12,14 @@
     <div class='album'>
     <button class='arrow left'><</button>
     <div class='picture'>
-      <img src='/assets/images/img01.jpg'>
+      <img src= <%= current %>>
     </div>
     <button class='arrow right'>></button>
   </div>
-  
+
   <ul class = 'thumbnail'>
   <% for( let i = 0; i < photos.length; i++) { %>
-    <li class = 'thumbnailPic'><a href = <%= photos[i] %> target = 'picture'><img src = <%= photos[i] %> alt = <%= description[i] %> ></a></li>
+    <li class = 'thumbnailPic'><a href = <%= photos[i].path %> target = 'picture'><img src = <%= photos[i].path %> alt = <%= photos[i].desc %> title = <%= photos[i].desc %> ></a></li>
   <% } %>
   
   </ul>
