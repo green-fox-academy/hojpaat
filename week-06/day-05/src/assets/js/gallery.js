@@ -25,14 +25,18 @@ let rightArrow = document.getElementsByClassName('right')[0];
 let thumbnailImages = document.getElementsByClassName('smallPic');
 
 
-console.log(thumbnailImages[0]);
+console.log(thumbnailImages.length);
+
+for(let i = 0; i < thumbnailImages.length; i++){
+  thumbnailImages[i].onclick = () => {
+    mainImage.setAttribute('src', thumbnailImages[i].getAttribute('src'))
+  }
+}
 
 
 // thumbnailImages.forEach((pic, index) => {
-//   pic.onclick = () => {
-//     document.getElementsByTagName('title')[0].innerText = 'testWorks'
+//     console.log(pic);
 
-//   }
 // })
 
 rightArrow.onclick = () => {
@@ -44,20 +48,4 @@ leftArrow.onclick = () => {
   mainImageIndex === 0 ? mainImageIndex = images.length - 1 : mainImageIndex = changeIndex(mainImageIndex, -1);
   mainImage.setAttribute('src', images[mainImageIndex].path);
 }
-
-
-// rightArrow.onclick = () => {
-//   mainImageIndex = changeIndex(mainImageIndex, 1);
-// }
-
-// leftArrow.onclick = () => {
-//   mainImageIndex = changeIndex(mainImageIndex, -1);
-// }
-
-
-
-
-
-
-
 
