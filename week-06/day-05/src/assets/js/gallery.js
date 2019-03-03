@@ -19,11 +19,21 @@ function changeIndex (currentIndex, indexchange){
 
 
 let mainImageIndex = 0;
-let mainImage = document.getElementsByTagName('img')[0];
+let mainImage = document.getElementById('mainPicture');
 let leftArrow = document.getElementsByClassName('left')[0];
 let rightArrow = document.getElementsByClassName('right')[0];
+let thumbnailImages = document.getElementsByClassName('smallPic');
 
 
+console.log(thumbnailImages[0]);
+
+
+// thumbnailImages.forEach((pic, index) => {
+//   pic.onclick = () => {
+//     document.getElementsByTagName('title')[0].innerText = 'testWorks'
+
+//   }
+// })
 
 rightArrow.onclick = () => {
   mainImageIndex === images.length - 1 ? mainImageIndex = 0 : mainImageIndex = changeIndex(mainImageIndex, 1);
@@ -34,7 +44,6 @@ leftArrow.onclick = () => {
   mainImageIndex === 0 ? mainImageIndex = images.length - 1 : mainImageIndex = changeIndex(mainImageIndex, -1);
   mainImage.setAttribute('src', images[mainImageIndex].path);
 }
-console.log(rightArrow);
 
 
 // rightArrow.onclick = () => {
