@@ -5,6 +5,11 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <h1>Todos</h1>
+  <ul>
+  <% for(let i = 0; i < todo.length; i++){ %>
+    <li><%= todo[i] %></li>
+      <% } %>
+    </ul>
 </body>
 </html>

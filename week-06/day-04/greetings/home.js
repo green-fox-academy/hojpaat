@@ -8,7 +8,7 @@ const path = require('path');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('home', {qs: req.query});
+  res.render('home');
 })
 
 app.listen(PORT, (req, res) =>{
