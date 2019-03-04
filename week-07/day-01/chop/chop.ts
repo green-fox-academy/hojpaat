@@ -15,7 +15,11 @@ function numberIndex(inputNumber: number, inputArray: number[]): number{
     index += arrayLength;
   }
 
-  
+  if(inputArray.length = 1){
+    inputArray[0] === inputNumber ? index : index = -1;
+  }else{
+    numberIndex(inputNumber, temporaryArray);
+  }
 
   return index
 }
