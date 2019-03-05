@@ -15,10 +15,17 @@ app.get('/', (req, res) => {
 
 app.get('/doubling', (req, res) => {
   let input = req.query.input;
-  res.json({
-    input: input,
-    double: input * 2
-  });
+  
+  if(input === undefined){
+    res.json({
+      error: 'Pease provide an input!'
+    })
+  }else{
+    res.json({
+      input: parseInt(input),
+      double: input * 2
+    });
+  }
 
    
 });
