@@ -24,6 +24,24 @@ app.get('/doubling', (req, res) => {
   res.json(output);
 });
 
+
+app.get('/greeter', (req, res) => {
+  let name = req.query.name;
+  let title = req.query.title;
+  let output = {};
+  if(name === undefined && title === undefined){
+    output = {error: 'Please provide a name and a title!'};
+  }else if (name === undefined){
+    output = {error: 'Please provide a name!'}
+  }else if(title === undefined){
+    output = { error: 'Please provide a title!'}
+  }else{
+  output = { 'welcome_message': `Oh, hi there ${name}, my dear ${title}!`}
+  }
+
+  res.json(output)
+})
+
 app.listen(PORT, () => {
   console.log('Server started');
   
