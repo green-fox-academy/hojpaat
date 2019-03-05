@@ -7,7 +7,7 @@ const test = require('tape');
 test('Testing chop function', t => {
 
   t.equal(numberIndex(3, []), -1, 'Check when the input array is empty' );
-  t.equal(numberIndex(3, [4]) -1, 'Check when input array has one item and it is not the searched number');
+  t.equal(numberIndex(3, [4]) -1);
   t.equal(numberIndex(5, [1, 5, 6, 8, 12, 24]), 1, 'test when the number is in the first half of the array and the element\'s number in the array is even');
   t.equal(numberIndex(5, [1, 5, 6, 8, 12]), 1, 'test when the number is in the first half of the array and the element\'s number in the array is odd');
   t.equal(numberIndex(50, [1, 8, 12, 40, 50, 87]), 4, 'test when the number is in the second half of the array and the element\'s number in the array is even')
