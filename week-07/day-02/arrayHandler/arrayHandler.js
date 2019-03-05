@@ -18,12 +18,28 @@ const functions = {
 
 app.post('/arrays', function (req, res) {
   let test = req.body;
+  let actions = Object.keys(functions);
+  let output = {};
+  console.log(test.numbers === []);
   
-  res.json({
-    what: test.what,
+  if(actions.indexOf(test.what) >= 0 && test.numbers[0] !== undefined){
+    output = {
+      what: test.what,
     test: 'this',
     numbers: functions[test.what](test.numbers)
-  });
+    }
+  } else if(test.numbers !== undefined && test.numbers[0] !== undefined){
+    output = {
+      error: 'Please choose from sum, multiply and double'
+    }
+  }else {
+    output = {
+      error: 'Please provide what to do with the numbers!'
+    }
+  }
+  
+
+  res.json(output);
 });
 
 app.listen(PORT, function () {
