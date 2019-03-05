@@ -15,19 +15,13 @@ app.get('/', (req, res) => {
 
 app.get('/doubling', (req, res) => {
   let input = req.query.input;
-  
+  let output = {};
   if(input === undefined){
-    res.json({
-      error: 'Pease provide an input!'
-    })
-  }else{
-    res.json({
-      input: parseInt(input),
-      double: input * 2
-    });
-  }
-
-   
+    output = { error: 'Please provide an input!'}
+   } else {
+     output = { input : parseInt(input), double: parseInt(input *2)};
+   }
+  res.json(output);
 });
 
 app.listen(PORT, () => {
