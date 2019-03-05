@@ -5,6 +5,21 @@ const app = express();
 const PORT = 8080;
 const path = require('path');
 
+function sum (number) {
+  if(number === 1){
+    return 1
+  }else{
+    return number += sum(number-1)
+  }
+}
+
+function factor (number){
+  if(number === 1){
+    return 1
+  } else {
+    return number *= factor(number-1)
+  }
+}
 app.use(express.json());
 app.use('/assets', express.static('assets'))
 
@@ -48,8 +63,30 @@ app.get('/appenda/:appendable', (req, res) => {
       'appended': `${req.params.appendable}a`
     });
   }else{
-    res.status(404).send();
   }
+})
+
+app.post('/dountil/:action', (req,res) => {
+  let data = req.body;
+  let method = req.params;
+  let output = {};
+
+  if (method.action === 'sum'){
+    output = {
+      result: sum(data.until)
+    }
+  }else if (method.action === 'factor'){
+    output = {
+      result: factor(data.until)
+    }
+  }else if(data.until === undefined){
+    
+    output = {
+      error: 'Please provide a number!'
+    }
+  }
+  
+  res.json(output)
 })
 
 app.listen(PORT, () => {
