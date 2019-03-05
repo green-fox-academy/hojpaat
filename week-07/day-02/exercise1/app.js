@@ -42,6 +42,16 @@ app.get('/greeter', (req, res) => {
   res.json(output)
 })
 
+app.get('/appenda/:appendable', (req, res) => {
+  if(req.params.appendable !== undefined){
+    res.json({
+      'appended': `${req.params.appendable}a`
+    });
+  }else{
+    res.status(404).send();
+  }
+})
+
 app.listen(PORT, () => {
   console.log('Server started');
   
