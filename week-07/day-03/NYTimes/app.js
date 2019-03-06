@@ -19,21 +19,28 @@ myRequest.open('GET', `${apiURL}${searchedExpression}${myKey}`);
 
 myRequest.onload = () => {
   let myArticles = JSON.parse(myRequest.responseText).response.docs;
-  console.log(myArticles[0]);
   
-  for(let i = 0; i < 20; i++){
+  for(let i = 0; i < myArticles.length; i++){
     let newArticleLi = document.createElement('li');
     let newArticleH1 = document.createElement('h1');
     newArticleH1.innerText = myArticles[i].headline.print_headline;
+
     let newArticleP = document.createElement('p');
-    newArticleP.innerText = myArticles[i].headline.main;
+    newArticleP.innerText = `${myArticles[i].headline.main} `;
+
     let newArticleDate = document.createElement('p');
     newArticleDate.innerText = myArticles[i].pub_date.substring(0, 10);
 
+    let newArticleLink = document.createElement('a');
+    newArticleLink.setAttribute('href', myArticles[i].web_url);
+    newArticleLink.innerText = 'More...';
+
+    newArticleP.appendChild(newArticleLink);
     newArticleLi.appendChild(newArticleH1);
     newArticleLi.appendChild(newArticleP);
     newArticleLi.appendChild(newArticleDate);
     articleList.appendChild(newArticleLi);
+
 
   }
   
