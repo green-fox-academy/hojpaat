@@ -24,9 +24,13 @@ giphyRequest.onload = function () {
   for (let i = 0; i < 16; i++) {
     let newImg = document.createElement('img');
     newImg.setAttribute('src', myData.data[i].images.fixed_height_still.url)
-    newImg.setAttribute('width', '50px')
     giphs.appendChild(newImg);
   }
+      for(let i = 0; i < images.length; i++){
+        images[i].addEventListener('click', () => {
+          images[i].setAttribute('src', myData.data[i].images.fixed_height.url)
+        })
+      }
 }
 
 let images = document.getElementsByTagName('img');
