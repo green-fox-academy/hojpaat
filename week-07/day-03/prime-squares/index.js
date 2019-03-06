@@ -23,7 +23,7 @@ function classPrime(inputElement){
   if (primeNumbers.indexOf(parseInt(inputElement.innerText)) >= 0){
     inputElement.setAttribute('class', 'prime');
   }else{
-    inputElement.setAttribute('class', 'notPrime');
+    inputElement.setAttribute('class', 'not-prime');
   }
 }
 
