@@ -25,12 +25,14 @@ function classPrime(inputElement){
   }else{
     inputElement.setAttribute('class', 'not-prime');
   }
+  console.log('still running');
+  
 }
 
 function addClassPrime(inputArray){
 
   for(let i = 0; i < inputArray.length; i++){
-    classPrime(inputArray[i]);
+    setTimeout(() => classPrime(inputArray[i]), 50 * i);
   }
 }
 
