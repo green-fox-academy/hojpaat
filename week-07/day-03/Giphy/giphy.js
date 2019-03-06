@@ -11,19 +11,26 @@ const myKey = '&api_key=AFEPytBGSvTRnhdqk3XZZTaCcINoFiWI';
 
 
 let giphyRequest = new XMLHttpRequest();
+let myData = {}
 
+let giphs = document.getElementById('giphs')
 
-  giphyRequest.open('GET', `${giphyEndpoint}${searchedExpression}${myKey}`)
+giphyRequest.open('GET', `${giphyEndpoint}${searchedExpression}${myKey}`)
+
+giphyRequest.onload = function () {
+  myData = JSON.parse(giphyRequest.responseText);
+  console.log(myData)
   
-  giphyRequest.onload = () => {
-    let myData = JSON.parse(giphyRequest.responseText);
-    console.log(myData);
-    
+  for (let i = 0; i < 16; i++) {
+    let newImg = document.createElement('img');
+    newImg.setAttribute('src', myData.data[i].images.fixed_height_still.url)
+    newImg.setAttribute('width', '50px')
+    giphs.appendChild(newImg);
   }
+}
 
-giphyRequest.send()
+let images = document.getElementsByTagName('img');
 
 
-console.log('this')
-
+giphyRequest.send();
 
