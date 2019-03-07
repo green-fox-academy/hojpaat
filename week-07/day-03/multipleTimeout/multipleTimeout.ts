@@ -8,9 +8,14 @@
 
 let fruits: string[] = ['apple', 'pear', 'melon', 'grapes'];
 
-const test = (array: any[], index) => {
-  console.log(array[index]);
+let index = 0;
+
+function logOut(fruits){
+    console.log(fruits[index]);
+    index++;
 }
 
-for(let i = 0; )
-setTimeout
+for(let i = 0; i < fruits.length; i++){
+  setTimeout()
+}
+
