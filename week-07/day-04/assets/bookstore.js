@@ -12,14 +12,17 @@ const deatailsButton = document.getElementById('details');
 let h1 = document.getElementsByTagName('h1')[0];
 const main = document.getElementById('main');
 
-
-
-booksButton.addEventListener('click', () => {
+let removeMainChildren = () => {
   if(typeof main.children[0] !== 'undefined'){
     main.children[0].remove();
   }
+}
+
+
+booksButton.addEventListener('click', () => {
+
   myRequest.open('GET', booksEndpoint);
-  
+  removeMainChildren();
   myRequest.onload = () => {
     let newUl = document.createElement('ul');
     newUl.setAttribute('id', 'bookList')
