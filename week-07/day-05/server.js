@@ -8,6 +8,8 @@ const mysql = require('mysql');
 
 app.use(express.json());
 
+
+
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -63,10 +65,10 @@ app.put('/posts/:id/upvote', (req, res) => {
         res.status(500).send();
         return;
       }
-      
+
       SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
       conn.query(SQL, (err, rows) => {
-        if(err){
+        if (err) {
           console.error(err);
           res.status(500).send();
           return;
@@ -90,10 +92,10 @@ app.put('/posts/:id/downvote', (req, res) => {
         res.status(500).send();
         return;
       }
-      
+
       SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
       conn.query(SQL, (err, rows) => {
-        if(err){
+        if (err) {
           console.error(err);
           res.status(500).send();
           return;
@@ -106,7 +108,60 @@ app.put('/posts/:id/downvote', (req, res) => {
   }
 })
 
+app.delete('/posts/:id/delete', (req, res) => {
+  let postId = req.params.id;
 
+  let SQL = `DELETE FROM posts WHERE post_id = ${postId};`;
+
+  if (typeof postId !== 'undefined') {
+    conn.query(SQL, (err, rows) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send();
+        return;
+      }
+      res.send(rows);
+    })
+  }else {
+  res.send('Incorrect id')
+}
+})
+
+app.put('/posts/:id', (req, res) => {
+  let postId = req.params.id;
+  let reqUsername = req.headers.username;
+  let userName = '';
+  let SQL = `SELECT user_name FROM posts p LEFT JOIN users u ON p.user_id = u.user_id WHERE post_id =${postId}`;
+  conn.query(SQL, (err, rows) => {
+    if(err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    if(reqUsername === rows[0]['user_name']){
+      SQL = `UPDATE posts SET title = '${req.body.new_title}', url = '${req.body.new_url}' WHERE post_id=${postId}`;
+  conn.query(SQL, (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
+    conn.query(SQL, (err, rows) => {
+      if(err){
+        console.error(err);
+        res.status(500).send();
+        return;
+      }
+      res.send(rows);
+    })
+  })
+    }else{
+      res.send('It is not your post');
+    };
+  })
+  // 
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
