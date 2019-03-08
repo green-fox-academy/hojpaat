@@ -130,7 +130,6 @@ app.delete('/posts/:id/delete', (req, res) => {
 app.put('/posts/:id', (req, res) => {
   let postId = req.params.id;
   let reqUsername = req.headers.username;
-  let userName = '';
   let SQL = `SELECT user_name FROM posts p LEFT JOIN users u ON p.user_id = u.user_id WHERE post_id =${postId}`;
   conn.query(SQL, (err, rows) => {
     if(err) {
