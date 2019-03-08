@@ -19,15 +19,17 @@ app.get('/hello', (req, res) => {
   res.send('Hello World!')
 })
 
-conn.connect((err) => {
-if (err) {
-  console.log('Error connecting to DB');
-  console.error();
-  return;
-}
-console.log('DB is connected');
-});
-conn.end();
+app.get('/posts', (req, res) => {
+  conn.query('SELECT * FROM posts;', (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.send(rows);
+  })
+})
+
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
