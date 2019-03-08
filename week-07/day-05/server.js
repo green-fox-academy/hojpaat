@@ -21,7 +21,7 @@ app.get('/hello', (req, res) => {
 
 app.get('/posts', (req, res) => {
   conn.query('SELECT * FROM posts;', (err, rows) => {
-    if(err){
+    if (err) {
       console.error(err);
       res.status(500).send();
       return;
@@ -31,25 +31,80 @@ app.get('/posts', (req, res) => {
 })
 
 app.post('/posts', (req, res) => {
+
   let SQL = `INSERT INTO posts (title, url, user_id) VALUES ('${req.body.title}', '${req.body.url}', ${req.body.user_id});`;
   conn.query(SQL, (err, rows) => {
-    if(err){
+    if (err) {
       console.error(err);
       res.status(500).send();
       return;
     }
     SQL = `SELECT * FROM posts WHERE post_id = ${rows.insertId};`;
-    
+
     conn.query(SQL, (err, rows) => {
-      if(err){
+      if (err) {
         console.error(err);
         res.status(500).send();
         return;
       }
       res.send(rows);
+    })
   })
-})
 });
+
+
+app.put('/posts/:id/upvote', (req, res) => {
+  let postId = req.params.id;
+  if (typeof postId !== 'undefined') {
+    let SQL = `UPDATE posts SET score = score + 1 WHERE post_id=${postId}`;
+    conn.query(SQL, (err, rows) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send();
+        return;
+      }
+      
+      SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
+      conn.query(SQL, (err, rows) => {
+        if(err){
+          console.error(err);
+          res.status(500).send();
+          return;
+        }
+        res.send(rows);
+      })
+    })
+  } else {
+    res.send('Incorrect id')
+  }
+})
+
+
+app.put('/posts/:id/downvote', (req, res) => {
+  let postId = req.params.id;
+  if (typeof postId !== 'undefined') {
+    let SQL = `UPDATE posts SET score = score - 1 WHERE post_id=${postId}`;
+    conn.query(SQL, (err, rows) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send();
+        return;
+      }
+      
+      SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
+      conn.query(SQL, (err, rows) => {
+        if(err){
+          console.error(err);
+          res.status(500).send();
+          return;
+        }
+        res.send(rows);
+      })
+    })
+  } else {
+    res.send('Incorrect id')
+  }
+})
 
 
 
