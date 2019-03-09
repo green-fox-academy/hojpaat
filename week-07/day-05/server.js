@@ -122,9 +122,9 @@ app.delete('/posts/:id/delete', (req, res) => {
       }
       res.send(rows);
     })
-  }else {
-  res.send('Incorrect id')
-}
+  } else {
+    res.send('Incorrect id')
+  }
 })
 
 app.put('/posts/:id', (req, res) => {
@@ -132,30 +132,30 @@ app.put('/posts/:id', (req, res) => {
   let reqUsername = req.headers.username;
   let SQL = `SELECT user_name FROM posts p LEFT JOIN users u ON p.user_id = u.user_id WHERE post_id =${postId}`;
   conn.query(SQL, (err, rows) => {
-    if(err) {
+    if (err) {
       console.error(err);
       res.status(500).send();
       return;
     }
-    if(reqUsername === rows[0]['user_name']){
+    if (reqUsername === rows[0]['user_name']) {
       SQL = `UPDATE posts SET title = '${req.body.new_title}', url = '${req.body.new_url}' WHERE post_id=${postId}`;
-  conn.query(SQL, (err, rows) => {
-    if(err){
-      console.error(err);
-      res.status(500).send();
-      return;
-    }
-    SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
-    conn.query(SQL, (err, rows) => {
-      if(err){
-        console.error(err);
-        res.status(500).send();
-        return;
-      }
-      res.send(rows);
-    })
-  })
-    }else{
+      conn.query(SQL, (err, rows) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send();
+          return;
+        }
+        SQL = `SELECT * FROM posts WHERE post_id = ${postId};`;
+        conn.query(SQL, (err, rows) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send();
+            return;
+          }
+          res.send(rows);
+        })
+      })
+    } else {
       res.send('It is not your post');
     };
   })
