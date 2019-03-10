@@ -108,7 +108,7 @@ Uptime:                 2 hours 2 min 28 sec
 Threads: 4  Questions: 82  Slow queries: 0  Opens: 195  Flush tables: 2  Open tables: 171  Queries per second avg: 0.011
 --------------
 
-mysql> CREATE TABLE persons (
+mysql> CREATE TABLE pers (
     -> id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     -> name VARCHAR(30) NOT NULL);
 Query OK, 0 rows affected (0.47 sec)
