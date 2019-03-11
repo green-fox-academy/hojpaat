@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let dataDirection = e.target.dataset.direction;
     if(dataAction === 'zoom'){
       dataDirection === 'in' && imgSize > 20 ? imgSize += 20 : imgSize -= 20;
-      img.setAttribute('style', `background-size: ${imgSize}%`)
     }else if(dataAction = 'move'){
       
       if(dataDirection === 'up'){
@@ -31,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         imgPosition.x -= 10;
       }
       
-      img.setAttribute('style', `background-position: ${imgPosition.x}px ${imgPosition.y}px;`);
     }
+    img.setAttribute('style', `background-size: ${imgSize}%; background-position: ${imgPosition.x}px ${imgPosition.y}px;`);
     
   })
 })
