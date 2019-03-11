@@ -3,7 +3,6 @@
 function message (inputMessage){
   let body = document.querySelector('body');
   let newP = document.createElement('div');
-  newP.setAttribute('data-click', 1);
   newP.innerText = inputMessage;
   body.appendChild(newP);
 }
@@ -16,29 +15,18 @@ function setClick(inputClick, inputNode){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
   let button = document.querySelector('button');
-  // button.addEventListener('click', () => {console.log('now')});
-  button.onclick = (e) => {
-    click = setClick(click, button);
-    // click += 1;
-    // button.setAttribute('data-click', click);
-    
+  
+  window.onload =() => {
+    setTimeout(() => {button.setAttribute('class', 'clickable')}, 5000);
+  }
+
+  button.onclick = () => {
+    if(button.getAttribute('class') === 'clickable'){
+      click = setClick(click, button);
+      if(button.dataset.click >= 3){
+        message('5 seconds elapsed and clicked 3 times');
+      }
+    }
   }
 })
-
-// function message(inputMessage){
-//   let body = document.querySelector('body');
-//   let newP = document.createElement('div');
-//   newP.innerText = inputMessage;
-//   body.appendChild(newP);
-// }
-  
-//   document.addEventListener('DOMContentLoaded', () => {
-//     let button = document.querySelector('button');
-    
-//     button.addEventListener('click', () => {
-
-//       setTimeout(()=>message('2 second ellapsed'), 2000);
-//   })
-// })
