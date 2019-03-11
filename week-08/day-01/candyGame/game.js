@@ -12,8 +12,8 @@ let lollypopimage = String.fromCodePoint(0x1F36D);
 lollypopStat.innerText = 'Lollipops: ';
 getLollypopBtn.disabled = true;
 
-let candyNumber = 100;
-let lollypopsNumber = 30;
+let candyNumber = 0;
+let lollypopsNumber = 0;
 let candyIncreasement = 0;
 let candySpeed = 1;
 
