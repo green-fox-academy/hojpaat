@@ -11,13 +11,18 @@ let lollypopimage = String.fromCodePoint(0x1F36D);
 
 lollypopStat.innerText = 'Lollipops: ';
 getLollypopBtn.disabled = true;
-candyRainBtn.disabled = true;
 
-// lollypops.setAttribute('style', 'display: none');
-let candyNumber = 0;
-let lollypopsNumber = 0;
+let candyNumber = 100;
+let lollypopsNumber = 30;
 let candyIncreasement = 0;
-let candySpeed
+let candySpeed = 1;
+
+function gameEnd(){
+    clearInterval(lollypopHarvest);
+    clearInterval(speedlog);
+}
+
+
 
 function lollypopButton (){
   candyNumber >= 100 ? getLollypopBtn.disabled = false : getLollypopBtn.disabled = true;
@@ -25,12 +30,10 @@ function lollypopButton (){
 }
 
 function candySpeedLog(){
-  candySpeed = candyNumber - candyIncreasement
-  speedStat.innerText = candySpeed;
+  speedStat.innerText = candyNumber - candyIncreasement;
   candyIncreasement = candyNumber;
 }
-
-setInterval(() => {
+let speedlog = setInterval(() => {
   if(candyNumber > candyIncreasement){
     candySpeedLog();
   }else {
@@ -42,20 +45,29 @@ getCandyBtn.onclick = () => {
   candyNumber += 1;
   candyStat.innerText = candyNumber;
   lollypopButton();
+  if(candyNumber > 150){
+    gameEnd();
+  }
 }
 
+let lollypopHarvest = undefined;
 getLollypopBtn.onclick = () => {
   candyNumber -=100;
   lollypopsNumber += 1;
   lollypopStat.innerText += lollypopimage;
   lollypopButton();
-  // lollypopStat.textContent = lollypopimage;
+
   if(lollypopsNumber >= 10){
-    setInterval( () => {
-      candyNumber += 1 * Math.floor(lollypopsNumber / 10);
+    lollypopHarvest = setInterval( () => {
+      candyNumber += 1 * Math.floor(lollypopsNumber / 10) * candySpeed;
       candyStat.innerText = candyNumber;
       lollypopButton();;
     }, 1000)
 
   }
+}
+
+
+candyRainBtn.onclick = () => {
+  candySpeed *= 10;
 }
