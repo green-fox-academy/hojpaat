@@ -6,22 +6,37 @@ let candyRainBtn = document.querySelector('.candy-machine');
 let candyStat = document.querySelector('.candies');
 let lollypopStat = document.querySelector('.lollypops');
 let speedStat = document.querySelector('.speed');
-
-lollypopStat.innerText = 'Lollipops: ';
 let lollypopimage = String.fromCodePoint(0x1F36D);
 
+
+lollypopStat.innerText = 'Lollipops: ';
 getLollypopBtn.disabled = true;
 candyRainBtn.disabled = true;
 
 // lollypops.setAttribute('style', 'display: none');
 let candyNumber = 0;
-let lollypopsNumber = 10;
-
+let lollypopsNumber = 0;
+let candyIncreasement = 0;
+let candySpeed
 
 function lollypopButton (){
-  candyNumber >= 10 ? getLollypopBtn.disabled = false : getLollypopBtn.disabled = true;
+  candyNumber >= 100 ? getLollypopBtn.disabled = false : getLollypopBtn.disabled = true;
   ;
 }
+
+function candySpeedLog(){
+  candySpeed = candyNumber - candyIncreasement
+  speedStat.innerText = candySpeed;
+  candyIncreasement = candyNumber;
+}
+
+setInterval(() => {
+  if(candyNumber > candyIncreasement){
+    candySpeedLog();
+  }else {
+    candyIncreasement = candyNumber;
+  }
+}, 1000);
 
 getCandyBtn.onclick = () => {
   candyNumber += 1;
@@ -30,7 +45,7 @@ getCandyBtn.onclick = () => {
 }
 
 getLollypopBtn.onclick = () => {
-  candyNumber -=10;
+  candyNumber -=100;
   lollypopsNumber += 1;
   lollypopStat.innerText += lollypopimage;
   lollypopButton();
