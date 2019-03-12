@@ -1,9 +1,11 @@
 body {
+  width: 100vw;
+  height: 100vh;
   background: rgb(23, 116, 202);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   display: flex;
-  justify-items: flex-end;
-  align-content: flex-end;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  justify-content: center;
+  align-items: center;
 }
 
 
