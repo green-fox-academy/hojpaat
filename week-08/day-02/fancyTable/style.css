@@ -1,0 +1,41 @@
+body {
+  background: rgb(23, 116, 202);
+  display: flex;
+  justify-items: flex-end;
+  align-content: flex-end;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+
+table {
+  width: 50%;
+  height: auto;
+  border-spacing: 0px;
+  border-radius: 1em;
+  border: none;
+  overflow: hidden;
+
+}
+
+tbody tr:nth-child(odd) {
+  background: #eee;
+}
+tbody tr:nth-child(even) {
+  background: rgb(206, 206, 206);
+}
+
+th {
+  background: black;
+  color: white;
+}
+
+th, td {
+  border: 1px solid #999;
+  text-align: left;
+  padding: 15px;
+  color: rgb(143, 143, 143);
+}
+
+td[data-currency]::before{
+  content: '$ ';
+}
