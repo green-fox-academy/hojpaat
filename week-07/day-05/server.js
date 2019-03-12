@@ -5,9 +5,10 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const mysql = require('mysql');
+const path = require('path');
 
 app.use(express.json());
-
+app.use('/assets', express.static('assets'));
 
 
 const conn = mysql.createConnection({
@@ -16,6 +17,10 @@ const conn = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE
 });
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
 
 app.get('/hello', (req, res) => {
   res.send('Hello World!')
