@@ -29,3 +29,11 @@ button {
   font-size: 30px;
   border: none;
 }
+
+button[data-action = 'delete']:hover{
+  color: rgb(199, 21, 21);
+}
+
+button[data-action = 'confirm']:hover{
+  color: olive;
+}
