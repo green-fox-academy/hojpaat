@@ -1,0 +1,81 @@
+body {
+  background: #2F3060;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonDiv {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+button {
+  width: 120px;
+  height: 50px;
+  margin: 20px;
+  padding : 5px;
+  border-radius: 10px;
+  border: none;
+  color: rgb(185, 185, 185);
+}
+
+#blue{
+  background: hsl(241, 100%, 57%);
+  box-shadow: 
+  0px -2px hsl(241, 100%, 67%),
+  0px 5px hsl(241, 100%, 47%),
+  3px 0px 5px rgb(39, 39, 73),
+  0px 7px 5px rgb(39, 39, 73),
+  -3px 0px 5px rgb(39, 39, 73)
+}
+
+#green {
+  background: hsl(135, 84%, 22%);
+  box-shadow: 
+  0px -2px hsl(135, 84%, 32%),
+  0px 5px hsl(135, 84%, 12%),
+  3px 0px 5px rgb(39, 39, 73),
+  0px 7px 5px rgb(39, 39, 73),
+  -3px 0px 5px rgb(39, 39, 73)
+}
+
+#red {
+  background: hsl(7, 87%, 41%);
+  box-shadow: 
+  0px -2px hsl(7, 87%, 51%),
+  0px 5px hsl(7, 87%, 31%),
+  3px 0px 5px rgb(39, 39, 73),
+  0px 7px 5px rgb(39, 39, 73),
+  -3px 0px 5px rgb(39, 39, 73)
+}
+
+#blue:hover{
+  background: hsl(241, 100%, 67%);
+}
+
+#green:hover {
+  background: hsl(135, 84%, 32%);
+}
+
+#red:hover {
+  background: hsl(7, 87%, 51%);
+}
+
+#blue:active{
+  background: hsl(241, 100%, 47%);
+}
+
+#green:active {
+  background: hsl(135, 84%, 12%);
+}
+
+#red:active {
+  background: hsl(7, 87%, 31%);
+}
