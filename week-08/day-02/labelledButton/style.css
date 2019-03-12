@@ -12,28 +12,72 @@ body{
   align-items: center;
 }
 
-#mainDiv{
+#mainDiv{ 
   width: 300px;
-  height: 300px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.buttonDiv{
+  margin: 5px;
+  height: auto;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+div[data-action = 'delete']{
+  color: white;
+}
+
+div[data-action = 'confirm']{
+  color: white;
 }
 
 button {
+  color: inherit;
+  font-size: 30px;
+  border: none;
   width: 60px;
   height: 60px;
   background: black;
-  color: white;
-  margin: 10px 40%;
+  flex-grow: 1;
+}
+
+
+div[data-action = 'delete']:hover{
+  color:rgb(199, 21, 21);
+}
+
+div[data-action = 'confirm']:hover{
+  color:olive;
+}
+
+div[class $= 'delete']:hover{
+  background: rgb(199, 21, 21);
+  opacity: 1;
+}
+
+div[class $= 'confirm']:hover{
+  background: olive;
+}
+
+.message{
   font-size: 30px;
-  border: none;
+  background: inherit;
+  font-weight: bolder;
+  color: white;
+  flex-grow: 3;
+  line-height: 50px;
+  text-align: center;
+  opacity: 0;
 }
 
-button[data-action = 'delete']:hover{
-  color: rgb(199, 21, 21);
+.message:hover{
+  opacity: 1;
 }
 
-button[data-action = 'confirm']:hover{
-  color: olive;
-}
