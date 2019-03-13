@@ -110,10 +110,10 @@ h1{
 
 .post{
   width: 100%;
-  height: 95px;
+  height: 115px;
   display: flex;
   flex-direction: row;
-  /* padding: 10px; */
+  padding: 10px;
 
 }
 
@@ -167,15 +167,16 @@ h1{
 .editPost a {
   color: black;
   transform: rotate(-270deg);
-  position: absolute;
+  position: relative;
+  top: 10px;
 }
-
+/* 
 .editPost a:nth-child(2){
   top: 90px;
 }
 .editPost a:nth-child(1){
-  top: 60px;
-}
+  top: 60px; */
+/* } */
 
 .editPost i:hover {
   transform: scale(1.3);
