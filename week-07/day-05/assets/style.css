@@ -52,17 +52,16 @@ header {
   height: 300px;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   position: relative;
   top: 200px;
   background: pink;
 }
 
-.leftDiv{
+.leftDiv, .rightDiv{
   background: white;
-  height: 30px;
-}
-
-.rightDiv{
-  background: white;
-  height: 30px;
+  height: 100px;
+  flex-grow: 1;
+  margin: 10px; 
 }
