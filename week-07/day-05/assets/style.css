@@ -102,6 +102,11 @@ h1{
   background: #CBC9AD;
   flex-grow: 4;
   padding: 20px;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .newPostBtn{
@@ -109,11 +114,12 @@ h1{
 }
 
 .post{
-  width: 100%;
+  width: 90%;
   height: 115px;
   display: flex;
   flex-direction: row;
   padding: 10px;
+  border: 1px solid rgb(104, 78, 47);
 
 }
 
@@ -146,13 +152,49 @@ h1{
 
 /* post article part */
 .article{
-  /* margin: 0px 10px 0 10px; */
-  padding-left: 10px;
-  height: 100;
-  width: 500px;
+  padding: 0 20px;
+  height: 115px;
+  width: 450px;
   overflow: hidden;
   text-align: justify;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
 }
+
+.front, .back {
+  width: auto;
+  height: 100%;
+  transition: opacity 0.4s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.front h1{
+  width: 450px;
+}
+
+.article:hover .front{
+  opacity: 0;
+}
+
+.back p{
+  height: 115px;
+  width: 400px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+.back{
+  left: -450px;
+  opacity: 0;
+}
+
+.article:hover .back{
+  opacity: 1;
+}
+
 
 /* post edit post part */
 .editPost{
@@ -167,16 +209,7 @@ h1{
 .editPost a {
   color: black;
   transform: rotate(-270deg);
-  position: relative;
-  top: 10px;
 }
-/* 
-.editPost a:nth-child(2){
-  top: 90px;
-}
-.editPost a:nth-child(1){
-  top: 60px; */
-/* } */
 
 .editPost i:hover {
   transform: scale(1.3);
