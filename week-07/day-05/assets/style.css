@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #634D33;
+  background: #AF9164;
   height: 100vh;
 }
 
@@ -20,7 +20,8 @@ header {
   position: fixed;
   top: 0px;
   border-radius: 10px;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;  
+  box-shadow: 3px 3px 5px rgb(71, 56, 38)
 }
 
 #sitename {
@@ -59,7 +60,7 @@ header {
 }
 
 div{
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 button{
@@ -67,15 +68,92 @@ button{
   text-shadow: 3px 3px 2px rgb(124, 59, 33);
   font-size: 20px;
   background: #C65427;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid #AF9164;
   padding: 10px;
   box-shadow: 3px 3px 5px #AF9164;
 }
 
 .leftDiv, .rightDiv{
-  background: #CBC9AD;
-  height: 100px;
+  height: 300px;
   flex-grow: 1;
   margin: 10px; 
+  padding: 10px; 
+  border: 0;
+  box-shadow: 3px 3px 5px rgb(71, 56, 38);
+}
+.rightDiv{
+  flex-grow: 2;
+  height: 300px;
+  box-shadow: none;
+}
+
+.leftDiv{
+  background: #CBC9AD;
+  flex-grow: 5;
+}
+
+.newPostBtn{
+  width: 100%;
+}
+
+.post{
+
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.post > div{
+  height: 100%;
+}
+
+
+/* post upvore part */
+.upvote{
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
+  color: #AF9164;
+  text-shadow: 1px 0px 1px black;
+}
+
+i:nth-child(1):hover{
+  font-size: 24px;
+  color: rgb(85, 141, 60);
+}
+i:nth-child(3):hover{
+  font-size: 24px;
+  color: rgb(139, 43, 18);
+}
+
+/* post article part */
+.post .article{
+  flex-grow: 1;
+}
+
+/* post edit post part */
+.editPost{
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
+}
+
+.editPost a {
+  color: black;
+  width: auto;
+  transform: rotate(-270deg);
+}
+
+.editPost i:hover {
+  font-size: 30px;
+  color: #C65427
 }
