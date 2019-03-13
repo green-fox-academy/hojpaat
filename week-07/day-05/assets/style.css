@@ -76,7 +76,7 @@ button{
   border-radius: 5px;
   border: 1px solid #AF9164;
   padding: 10px;
-  box-shadow: 3px 3px 5px #AF9164;
+  box-shadow: 3px 3px 5px rgb(150, 126, 91);
 }
 
 h1{
@@ -99,6 +99,7 @@ h1{
 }
 
 .leftDiv{
+  height: auto;
   background: #CBC9AD;
   flex-grow: 4;
   padding: 20px;
@@ -181,7 +182,7 @@ h1{
 
 .back p{
   height: 115px;
-  width: 400px;
+  width: 420px;
   line-height: 20px;
   overflow: hidden;
 }
