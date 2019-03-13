@@ -50,6 +50,7 @@ input {
 }
 
 input[type='submit']{
+  margin: 30px 10px 10px 70px;
   background: rgb(75, 75, 75);
   color: white;
   width: 70px;
