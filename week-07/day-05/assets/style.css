@@ -6,7 +6,8 @@
 
 body {
   background: #AF9164;
-  height: 100vh;
+  height: auto;
+  width: auto;
 }
 
 /* header style */
@@ -21,7 +22,8 @@ header {
   top: 0px;
   border-radius: 10px;
   background-repeat: no-repeat;  
-  box-shadow: 3px 3px 5px rgb(71, 56, 38)
+  box-shadow: 3px 3px 5px rgb(71, 56, 38);
+  z-index: 10;
 }
 
 #sitename {
@@ -50,13 +52,16 @@ header {
 /* main part style */
 
 #mainPart{
-  height: 300px;
+  /* margin: 40px; */
+  width: 80vw;
+  height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   position: relative;
-  top: 200px;
+  top: 250px;
+  left: 10vw;
 }
 
 div{
@@ -74,9 +79,14 @@ button{
   box-shadow: 3px 3px 5px #AF9164;
 }
 
+h1{
+  font-size: 30px;
+  margin-bottom: 7px;
+}
+
+
 .leftDiv, .rightDiv{
   height: 300px;
-  flex-grow: 1;
   margin: 10px; 
   padding: 10px; 
   border: 0;
@@ -90,7 +100,8 @@ button{
 
 .leftDiv{
   background: #CBC9AD;
-  flex-grow: 5;
+  flex-grow: 4;
+  padding: 20px;
 }
 
 .newPostBtn{
@@ -98,11 +109,11 @@ button{
 }
 
 .post{
-
   width: 100%;
-  height: 100px;
+  height: 95px;
   display: flex;
   flex-direction: row;
+  /* padding: 10px; */
 
 }
 
@@ -113,7 +124,7 @@ button{
 
 /* post upvore part */
 .upvote{
-  width: 70px;
+  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -121,25 +132,31 @@ button{
   font-size: 20px;
   color: #AF9164;
   text-shadow: 1px 0px 1px black;
+  padding: 0;
 }
 
-i:nth-child(1):hover{
+.upvote i:nth-child(1):hover{
   font-size: 24px;
   color: rgb(85, 141, 60);
 }
-i:nth-child(3):hover{
+.upvote i:nth-child(3):hover{
   font-size: 24px;
   color: rgb(139, 43, 18);
 }
 
 /* post article part */
-.post .article{
-  flex-grow: 1;
+.article{
+  /* margin: 0px 10px 0 10px; */
+  padding-left: 10px;
+  height: 100;
+  width: 500px;
+  overflow: hidden;
+  text-align: justify;
 }
 
 /* post edit post part */
 .editPost{
-  width: 50px;
+  flex-grow: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -149,11 +166,19 @@ i:nth-child(3):hover{
 
 .editPost a {
   color: black;
-  width: auto;
   transform: rotate(-270deg);
+  position: absolute;
+}
+
+.editPost a:nth-child(2){
+  top: 90px;
+}
+.editPost a:nth-child(1){
+  top: 60px;
 }
 
 .editPost i:hover {
-  font-size: 30px;
-  color: #C65427
+  transform: scale(1.3);
+  color: #C65427;
+  position: relative;
 }
