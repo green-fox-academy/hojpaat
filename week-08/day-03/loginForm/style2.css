@@ -36,18 +36,10 @@ fieldset{
   text-transform: uppercase;
 }
 
-legend {
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: bolder;
-}
-
-input, select {
-  display: block;
-  height: 20px;
-  border-radius: 2px;
-  margin-top: 5px;
-  border: 1px solid black;
+select{
+  width: 200px;
+  margin-left: 20px;
+  border: 1px solid olive;
 }
 
 input[type='submit'], button{
@@ -61,40 +53,12 @@ input[type='submit'], button{
   box-shadow: 3px 3px 5px rgb(130, 130, 130);
 }
 
-:focus {
-  outline-color: olive;
+.default {
+  color: grey;
 }
 
-input:focus {
-  border: olive;
+option:hover{
+  background: olive;
+  color: white;
 }
 
-i{
-  position: relative;
-  left: 150px;
-  top: -17px;
-}
-
-/* style for the favorite pet */
-
-.survey label{
-  text-transform: capitalize;
-  font-size: 18px;
-  margin: 5px;
-  line-height: 20px;
-}
-
-.survey input[type='radio'] {
-  display: inline-block;
-  position: relative;
-  top: 5px;
-}
-
-
-.survey input[type='submit'] {
-  display: inline-block;
-}
-
-button[disabled], input[disabled]{
-  color:grey;
-}
