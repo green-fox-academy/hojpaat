@@ -39,10 +39,44 @@
         <label for = 'Victor'>Victor the goldfish</label>
       </fieldset>
 
+      <fieldset>
+        <legend>Do you want to sign up for cat fatcs?</legend>
+        <input type='radio' name = 'signUp' id = 'yes' checked/>
+        <label for = 'yes'>Yes</label>
+        <br>
+        <input type='radio' name = 'signUp' id = 'no'/>
+        <label for = 'no'>No</label>
+      </fieldset>
+
       
-      <input type = 'submit' value = 'Submit'/>
+      <input type = 'submit' value = 'I love cats' id = 'loveCats' disabled = true/>
+      <input type = 'submit' value = 'Sign up' id = 'signingUp' disabled = true/>
     </form>
 
   </div>
+
+  <script>
+    let loveCats = document.getElementById('loveCats');
+    let signingUp = document.getElementById('signingUp')
+    let radioDog = document.getElementById('dog');
+    let radioCat = document.getElementById('cat');
+    let survey = document.getElementsByClassName('survey')[0];
+    
+    console.log((survey));
+    
+    function signUp(){
+      if(radioCat.checked === true || radioDog.checked === true){
+        console.log('happend');
+        
+      } else {
+        console.log('nah');
+        
+      }
+    }
+
+      survey.addEventListener('click', () => {
+        signUp();
+      });
+  </script>
 </body>
 </html>
