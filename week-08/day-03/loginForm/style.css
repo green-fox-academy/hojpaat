@@ -16,7 +16,7 @@ body {
 div {
   background: white;
   width: 500px;
-  height: 300px;
+  height: auto;
   border-radius: 10px;
   box-shadow: 3px 3px 10px rgb(130, 130, 130)
 }
@@ -31,8 +31,8 @@ form {
 fieldset{
   border: 0;
   padding: 0 0 0 70px;
-  text-transform: uppercase;
   font-size: 12px;
+  text-transform: uppercase;
 }
 
 legend {
@@ -67,3 +67,26 @@ input[type='submit']{
 input:focus {
   border: olive;
 }
+
+i{
+  position: relative;
+  left: 150px;
+  top: -17px;
+}
+
+/* style for the favorite pet */
+
+.survey label{
+  text-transform: capitalize;
+  display: inline-block;
+  font-size: 18px;
+  margin: 5px;
+  line-height: 20px;
+}
+
+.survey input[type='radio'] {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+
