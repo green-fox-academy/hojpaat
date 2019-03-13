@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #705A41;
+  background: #634D33;
   height: 100vh;
 }
 
@@ -56,11 +56,25 @@ header {
   flex-wrap: wrap;
   position: relative;
   top: 200px;
-  background: pink;
+}
+
+div{
+  border-radius: 3px;
+}
+
+button{
+  color: white;
+  text-shadow: 3px 3px 2px rgb(124, 59, 33);
+  font-size: 20px;
+  background: #C65427;
+  border-radius: 3px;
+  border: 1px solid #AF9164;
+  padding: 10px;
+  box-shadow: 3px 3px 5px #AF9164;
 }
 
 .leftDiv, .rightDiv{
-  background: white;
+  background: #CBC9AD;
   height: 100px;
   flex-grow: 1;
   margin: 10px; 
