@@ -79,6 +79,10 @@ button{
   box-shadow: 3px 3px 5px rgb(150, 126, 91);
 }
 
+button:hover{
+  background: rgb(113, 150, 44);
+}
+
 h1{
   font-size: 30px;
   margin-bottom: 7px;
