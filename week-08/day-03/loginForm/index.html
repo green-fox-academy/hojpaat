@@ -25,7 +25,7 @@
       <input type = 'submit' value = 'Login'/>
     </form>
 
-    <form class = 'survey' method = 'POST' action ='/survey'>
+    <form class = 'survey' method = '' action='#'>
 
       <fieldset>
         <legend>What is your favorite pet?</legend>
@@ -49,8 +49,9 @@
       </fieldset>
 
       
-      <input type = 'submit' value = 'I love cats' id = 'loveCats'/>
-      <input type = 'submit' value = 'Sign up' id = 'signingUp' disabled = true/>
+      <input type = 'submit' value = 'I love cats' id = 'loveCats'>
+      <input type = 'submit' value = 'Sign up' id = 'signingUp' disabled = true>
+
     </form>
 
   </div>
@@ -79,10 +80,16 @@
         loveCats.disabled = true;
       }
     }
-      survey.addEventListener('click', () => {
+
+      survey.addEventListener('click', (e) => {
+        if(e.target === loveCats || e.target === signingUp){
+          alert('Thank you, you\'ve successfully signed up for cat facts');
+        }
         signUp();
         iLoveCat();
       });
+
+
   </script>
 </body>
 </html>

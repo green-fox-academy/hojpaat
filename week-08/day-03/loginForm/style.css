@@ -50,7 +50,7 @@ input {
   border: 1px solid black;
 }
 
-input[type='submit']{
+input[type='submit'], button{
   margin: 30px 10px 10px 70px;
   background: rgb(75, 75, 75);
   color: white;
@@ -95,6 +95,6 @@ i{
   display: inline-block;
 }
 
-input[disabled]{
+button[disabled], input[disabled]{
   color:grey;
 }
