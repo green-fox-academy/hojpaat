@@ -49,7 +49,7 @@
       </fieldset>
 
       
-      <input type = 'submit' value = 'I love cats' id = 'loveCats' disabled = true/>
+      <input type = 'submit' value = 'I love cats' id = 'loveCats'/>
       <input type = 'submit' value = 'Sign up' id = 'signingUp' disabled = true/>
     </form>
 
@@ -61,21 +61,27 @@
     let radioDog = document.getElementById('dog');
     let radioCat = document.getElementById('cat');
     let survey = document.getElementsByClassName('survey')[0];
-    
-    console.log((survey));
-    
+    let yesCatFacts = document.getElementById('yes');
+
     function signUp(){
       if(radioCat.checked === true || radioDog.checked === true){
-        console.log('happend');
-        
+        signingUp.disabled = false;
       } else {
-        console.log('nah');
-        
+        signingUp.disabled = true;
       }
     }
 
+    function iLoveCat(){
+      if(yesCatFacts.checked === true){
+        loveCats.disabled = false;
+        
+      }else{
+        loveCats.disabled = true;
+      }
+    }
       survey.addEventListener('click', () => {
         signUp();
+        iLoveCat();
       });
   </script>
 </body>
