@@ -149,6 +149,7 @@ h1{
 .upvote i:nth-child(1):hover{
   font-size: 24px;
   color: rgb(85, 141, 60);
+  position: relative;
 }
 .upvote i:nth-child(3):hover{
   font-size: 24px;
@@ -186,7 +187,7 @@ h1{
 
 .back p{
   height: 115px;
-  width: 420px;
+  width: 450px;
   line-height: 20px;
   overflow: hidden;
 }
@@ -203,7 +204,7 @@ h1{
 
 /* post edit post part */
 .editPost{
-  flex-grow: 2;
+  width: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -221,3 +222,8 @@ h1{
   color: #C65427;
   position: relative;
 }
+
+/* .back p{
+  font-size: 30px;
+  line-height: 50px;
+} */
