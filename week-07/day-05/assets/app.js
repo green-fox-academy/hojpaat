@@ -1,13 +1,15 @@
 'use strict';
 
+const myRequest = new XMLHttpRequest();
+
 let arrowUp = '<i class="fas fa-arrow-alt-circle-up"></i>'
 let arrowDown = '<i class="fas fa-arrow-alt-circle-down"></i>';
 let scoreField = '<div class = "score"></div>';
 let editIcon = '<i class="fas fa-pencil-alt"></i>'
 let deletIcon = '<i class="fas fa-eraser"></i>'
 
-const createUpvoteField = function upvoteCreation (){
-  
+const createUpvoteField = function upvoteCreation() {
+
   let newDivUpvote = document.createElement('div');
   newDivUpvote.setAttribute('class', 'upvote');
 
@@ -18,12 +20,12 @@ const createUpvoteField = function upvoteCreation (){
 const createArticleDiv = () => {
   let newArticleDiv = document.createElement('div');
   newArticleDiv.setAttribute('class', 'article');
-  
+
   let newFrontDiv = document.createElement('div');
   newFrontDiv.setAttribute('class', 'front');
   newFrontDiv.appendChild(document.createElement('h1'));
   newArticleDiv.appendChild(newFrontDiv);
-  
+
   let newBackDiv = document.createElement('div');
   newBackDiv.setAttribute('class', 'back');
   newBackDiv.appendChild(document.createElement('p'));
@@ -39,7 +41,7 @@ const createEditBar = () => {
   let newEditA = document.createElement('a');
   newEditA.innerHTML = editIcon;
   editPostDiv.appendChild(newEditA);
-  
+
   let newDeletA = document.createElement('a');
   newDeletA.innerHTML = deletIcon;
   editPostDiv.appendChild(newDeletA);
@@ -50,9 +52,9 @@ const createEditBar = () => {
 
 
 //append new post
-let leftDiv = document.getElementsByClassName('leftDiv')[0];
 
 const appendNewPost = () => {
+  let leftDiv = document.getElementsByClassName('leftDiv')[0];
   let newPostDiv = document.createElement('div');
   newPostDiv.setAttribute('class', 'post');
 
@@ -62,4 +64,29 @@ const appendNewPost = () => {
   leftDiv.appendChild(newPostDiv);
   console.log('worked');
 }
-appendNewPost();
+
+
+// fill up with information the new post
+
+const writeInnerText = (inputElement, inputData) => {
+  inputElement.writeInnerText = inputData;
+}
+
+
+myRequest.open('GET', '/posts');
+myRequest.onload = () => {
+  let postsData = JSON.parse(myRequest.responseText);
+  for (let i = 0; i < 3; i++) {
+    appendNewPost();
+  }
+
+  let scores = Array.from(document.querySelectorAll('.score'));
+
+
+  scores.forEach((scoreDiv, index) => {
+    scoreDiv.textContent = postsData[index].score;
+  })
+
+}
+
+myRequest.send();
