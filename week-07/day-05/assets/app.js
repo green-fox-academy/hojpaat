@@ -23,12 +23,10 @@ const createArticleDiv = () => {
 
   let newFrontDiv = document.createElement('div');
   newFrontDiv.setAttribute('class', 'front');
-  newFrontDiv.appendChild(document.createElement('h1'));
   newArticleDiv.appendChild(newFrontDiv);
 
   let newBackDiv = document.createElement('div');
   newBackDiv.setAttribute('class', 'back');
-  newBackDiv.appendChild(document.createElement('p'));
   newArticleDiv.appendChild(newBackDiv);
 
   return newArticleDiv;
@@ -68,10 +66,9 @@ const appendNewPost = () => {
 
 // fill up with information the new post
 
-const writeInnerText = (inputElement, inputData) => {
-  inputElement.writeInnerText = inputData;
+const fillHTML = (inputNode, inputData) => {
+  inputNode.innerHTML = inputData;
 }
-
 
 myRequest.open('GET', '/posts');
 myRequest.onload = () => {
@@ -80,13 +77,23 @@ myRequest.onload = () => {
     appendNewPost();
   }
 
-  let scores = Array.from(document.querySelectorAll('.score'));
-
+  let scores = document.querySelectorAll('.score');
 
   scores.forEach((scoreDiv, index) => {
     scoreDiv.textContent = postsData[index].score;
   })
 
+  let frontDivs = document.querySelectorAll('.front')
+
+  frontDivs.forEach((div, index) => {
+    fillHTML(div, `<h1>${postsData[index].title}</h1>`);
+  })
+
+  let backDivs = document.querySelectorAll('.back');
+
+  backDivs.forEach((div, index) => {
+    fillHTML(div, `<p>${postsData[index].url}</p>`)
+  })
 }
 
 myRequest.send();
