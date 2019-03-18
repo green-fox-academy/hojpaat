@@ -1,8 +1,8 @@
 'use strict';
 
-const routes = require('./routes');
+const backend = require('./backend');
 const PORT = 3000;
 
-routes.listen(PORT, () => {
+backend.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
 })

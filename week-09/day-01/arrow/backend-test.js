@@ -20,3 +20,15 @@ test('yondu', (t) => {
     t.end();
   })
 })
+
+test('yondu missing time', (t) => {
+  request(app)
+  .get('/yondu?time=10')
+  .expect('Content-Type', /json/)
+  .expect(400)
+  .expect({distance: null, time: 10, speed: null})
+  .end((err, res) => {
+    t.error(err);
+    t.end();
+  })
+})
