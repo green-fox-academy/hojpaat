@@ -11,8 +11,10 @@ app.get('/groot', (req, res) => {
   if(typeof message !== 'undefined'){
     translation.received = message;
     translation.translated = 'I am Groot!'
+    res.status(200);
   }else {
     translation.error = 'I am Groot!'
+    res.status(400);
   }
   res.json(translation);
 });
