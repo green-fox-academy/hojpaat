@@ -21,7 +21,7 @@ test('yondu', (t) => {
   })
 })
 
-test('yondu missing time', (t) => {
+test('yondu missing distance', (t) => {
   request(app)
   .get('/yondu?time=10')
   .expect('Content-Type', /json/)
