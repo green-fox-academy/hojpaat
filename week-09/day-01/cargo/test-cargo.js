@@ -55,3 +55,19 @@ test('overloaded cargo', (t) => {
   })
 })
 
+test('fill cargo', (t) => {
+  request(app)
+  .get('/rocket/fill?caliber=.50&amount=0')
+  .expect('Content-type', /json/)
+  .expect(200)
+  .expect({
+    received: '.50',
+    amount: 0,
+    shipstatus: 'empty',
+    ready: false
+  })
+  .end((err, res) => {
+    t.error(err);
+    t.end();
+  })
+})
