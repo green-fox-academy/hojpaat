@@ -48,7 +48,6 @@ const createEditBar = () => {
 
 }
 
-
 //append new post
 
 const appendNewPost = () => {
@@ -63,37 +62,58 @@ const appendNewPost = () => {
   console.log('worked');
 }
 
-
 // fill up with information the new post
 
 const fillHTML = (inputNode, inputData) => {
   inputNode.innerHTML = inputData;
 }
 
-myRequest.open('GET', '/posts');
-myRequest.onload = () => {
-  let postsData = JSON.parse(myRequest.responseText);
-  for (let i = 0; i < 3; i++) {
-    appendNewPost();
+const postsDOM = () => {
+
+  myRequest.open('GET', '/posts');
+  myRequest.onload = () => {
+    let postsData = JSON.parse(myRequest.responseText);
+    for (let i = 0; i < 3; i++) {
+      appendNewPost();
+    }
+
+    let scores = document.querySelectorAll('.score');
+
+    scores.forEach((scoreDiv, index) => {
+      scoreDiv.textContent = postsData[index].score;
+    })
+
+    let frontDivs = document.querySelectorAll('.front')
+
+    frontDivs.forEach((div, index) => {
+      fillHTML(div, `<h1>${postsData[index].title}</h1>`);
+    })
+
+    let backDivs = document.querySelectorAll('.back');
+
+    backDivs.forEach((div, index) => {
+      fillHTML(div, `<p>${postsData[index].url}</p>`)
+    })
+
+    //upvote vs downvote
+    let upvoteDiv = document.getElementsByClassName('upvote')[1];
+    console.log(upvoteDiv);
+    upvoteDiv.addEventListener('click', (e) => {
+      if(e.target.class === 'fa-arrow-alt-circle-down'){
+        console.log('this');
+      };
+      
+    })
   }
 
-  let scores = document.querySelectorAll('.score');
+  myRequest.send();
 
-  scores.forEach((scoreDiv, index) => {
-    scoreDiv.textContent = postsData[index].score;
-  })
 
-  let frontDivs = document.querySelectorAll('.front')
-
-  frontDivs.forEach((div, index) => {
-    fillHTML(div, `<h1>${postsData[index].title}</h1>`);
-  })
-
-  let backDivs = document.querySelectorAll('.back');
-
-  backDivs.forEach((div, index) => {
-    fillHTML(div, `<p>${postsData[index].url}</p>`)
-  })
 }
 
-myRequest.send();
+postsDOM();
+
+postsDOM.onload = () => {
+}
+
+console.log('this');

@@ -57,8 +57,4 @@ input[type='submit'], button{
   color: grey;
 }
 
-option:hover{
-  background: olive;
-  color: white;
-}
 

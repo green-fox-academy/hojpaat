@@ -7,7 +7,7 @@ const PORT = 3000; //set up the port
 const mysql = require('mysql'); //use mysql package
 const path = require('path') //be able to use path package provides utilities for working with file and directory paths
 
-app.use(express.urlencoded({ extended: true }));// be able to send data by form
+app.use(express.urlencoded({ extended: true }));// be able to receive data sent by form
 
 app.use(express.json()); // parse to json
 

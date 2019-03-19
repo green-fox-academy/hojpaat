@@ -10,3 +10,7 @@ myRequest.onload = () => {
 };
 
 myRequest.send(); //send request
+
+//stop bubbling and default behavior
+event.stopPropagation();
+event.preventDefault();
