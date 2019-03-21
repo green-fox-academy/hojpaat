@@ -4,7 +4,7 @@ const url = 'http://api.icndb.com/jokes/random';
 const button = document.getElementById('jokeBtn');
 const div = document.getElementById('text');
 
-function addText(data){
+function addText(data ){
   div.innerText = data.value.joke;
 }
 
