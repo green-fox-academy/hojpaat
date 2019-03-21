@@ -43,9 +43,8 @@ app.get('/api/game', (req, res) => {
       let allQuestionId = rows.map(elem => {
         return elem.id
       })
-      console.log(allQuestionId[randomNumber]);
-      res.send(allQuestionId);
-      // getQuestion(neededId, res);
+      let neededId = randomElemFromArray(allQuestionId);
+      getQuestion(neededId, res);
   })
 })
 
@@ -117,5 +116,5 @@ function getQuestion(searchedID, res){
 }
 
 function randomElemFromArray(inputArray){
-  return inputArray[Math.floor(Math.random() * inputArray.length + 1)];
+  return inputArray[Math.round(Math.random() * (inputArray.length - 1))];
 }
