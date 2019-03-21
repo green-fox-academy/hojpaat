@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/assets/style.css" type="text/css">
+  <title>hojpaat</title>
+</head>
+<body>
+
+  <div>
+    <h1> Create a new question</h1>
+  </div>
+  <form id = 'newQuestion'>
+    
+    <input id = 'question' type = 'text' name = 'question' placeholder= 'Type your question here...' required />
+    <fieldset>
+
+      <legend>Answers</legend>
+      <label for = 'answer1'>#1</label>
+      <input type = 'text' name = 'answer1'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/> <br>
+
+
+      <label for = 'answer2'>#2</label>
+      <input type = 'text' name = 'answer2'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/><br>
+
+      <label for = 'answer3'>#3</label>
+      <input type = 'text' name = 'answer3'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/><br>
+
+      <label for = 'answer4'>#4</label>
+      <input type = 'text' name = 'answer4'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/><br>
+
+    </fieldset>
+
+    <input id = 'submitBtn' type = 'submit' value = 'submit'/>
+
+  </form>
+  
+  <script src = '/assets/menageQuestions.js' type = "text/javascript"></script>
+</body>
+</html>

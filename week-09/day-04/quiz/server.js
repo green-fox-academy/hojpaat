@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
 })
 
+app.get('/questions', (req, res) => {
+  res.sendFile(path.join(__dirname, '/assets/menageQuestions.html'));
+})
+
 app.post('/api/questions', (req, res) => {
   let question = req.body.question;
   let answers = req.body.answers;
