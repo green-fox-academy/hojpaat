@@ -48,6 +48,19 @@ app.get('/api/game', (req, res) => {
   })
 })
 
+app.get('/api/questions', (req, res) => {
+  let SQL = `SELECT id, question FROM questions;`;
+
+  conn.query(SQL, (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return
+    }
+    res.send(rows);
+  })
+})
+
 app.post('/api/questions', (req, res) => {
   let question = req.body.question;
   let answers = req.body.answers;
@@ -73,6 +86,31 @@ app.post('/api/questions', (req, res) => {
 
     getQuestion(questionId, res);
   })
+})
+
+app.delete('/api/questions/:id', (req, res) => {
+  let deleteId = req.params.id;
+  let SQL = `DELETE FROM questions WHERE id = ${deleteId};`;
+
+  conn.query(SQL, (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return
+    }
+    res.send();
+  })
+
+  SQL = `DELETE FROM answers WHERE question_id = ${deleteId};`
+  conn.query(SQL, (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return
+    }
+    res.send()
+  })
+
 })
 
 function insertAnswers(inputQuestionId, SQLvalues, res){
