@@ -41,7 +41,7 @@ function sendForm(){
   myRequest.open('POST', '/api/questions');
   myRequest.onload = (e) => {
     clearForm();
-    console.log(e.target.responseText)}
+    console.log(JSON.parse(e.target.responseText))}
   myRequest.setRequestHeader('Content-Type', 'application/json');
   myRequest.send(JSON.stringify(formData()))
 }

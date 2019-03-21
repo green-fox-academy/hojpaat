@@ -30,6 +30,10 @@ app.get('/questions', (req, res) => {
   res.sendFile(path.join(__dirname, '/assets/menageQuestions.html'));
 })
 
+app.get('/api/game', (req, res) => {
+  getQuestion(1, res);
+})
+
 app.post('/api/questions', (req, res) => {
   let question = req.body.question;
   let answers = req.body.answers;
@@ -41,18 +45,58 @@ app.post('/api/questions', (req, res) => {
       res.status(500).send();
       return
     }
-    let questionId = res.insertId;
+    let questionId = rows.insertId;
 
-    let SQLanswers = `INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[0].answer_1}, ${answers[0].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[1].answer_2}, ${answers[1].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[2].answer_3}, ${answers[2].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[3].answer_4}, ${answers[3].is_correct});`;
+    let SQLanswers1 = [answers[0].answer_1, answers[0].is_correct];
+    let SQLanswers2 = [answers[1].answer_2, answers[1].is_correct];
+    let SQLanswers3 = [answers[2].answer_3, answers[2].is_correct];
+    let SQLanswers4 = [answers[3].answer_4, answers[3].is_correct];
+    
+    insertAnswers(questionId, SQLanswers1, res);
+    insertAnswers(questionId, SQLanswers2, res);
+    insertAnswers(questionId, SQLanswers3, res);
+    insertAnswers(questionId, SQLanswers4, res);
 
-    // conn.query(SQLanswers, (err, rows) => {
-    //   if(err){
-    //     console.error(err);
-    //     res.status(500).send();
-    //     return
-    //   }
-      res.send(rows);
-    })
-  // })
-  // res.send('happaned');
+    getQuestion(questionId, res);
+  })
 })
+
+function insertAnswers(inputQuestionId, SQLvalues, res){
+  let SQL = `INSERT INTO answers (question_id, answer, is_correct) VALUES (${inputQuestionId}, ?);`
+  conn.query(SQL, [SQLvalues], (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return
+    }
+    console.log(rows);
+  })
+}
+
+function getQuestion(searchedID, res){
+  let SQL = `SELECT * FROM questions WHERE id = ${searchedID};`;
+
+  conn.query(SQL, (err, question) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return
+    }
+    let choosenQuestion = question[0];
+  
+    SQL = `SELECT * FROM answers WHERE question_id = ${question[0].id};`
+
+    conn.query(SQL, (err, options) => {
+      if(err){
+        console.error(err);
+        res.status(500).send();
+        return
+      }
+      res.send({
+        id: choosenQuestion.id,
+        question: choosenQuestion.question,
+        answers: options
+      })
+    })
+  })
+}
