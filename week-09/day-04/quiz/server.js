@@ -8,6 +8,7 @@ const mysql = require('mysql');
 const path = require('path');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/assets', express.static('assets'));
 
 const conn = mysql.createConnection({
@@ -32,4 +33,5 @@ app.get('/questions', (req, res) => {
 app.post('/api/questions', (req, res) => {
   let question = req.body.question;
   let answers = req.body.answers;
+  res.send(req.body);
 })

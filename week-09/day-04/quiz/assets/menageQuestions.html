@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/assets/style.css" type="text/css">
   <title>hojpaat</title>
 </head>
 <body>
@@ -10,24 +9,28 @@
   <div>
     <h1> Create a new question</h1>
   </div>
-  <form id = 'newQuestion'>
+  <form id = 'newQuestion' method = 'POST' action = '/api/questions'>
     
-    <input id = 'question' type = 'text' name = 'question' placeholder= 'Type your question here...' required />
+    <input id = 'question' type = 'text' name = 'question' placeholder= 'Type your question here...' required value = 'Q'/>
     <fieldset>
 
       <legend>Answers</legend>
       <label for = 'answer1'>#1</label>
-      <input type = 'text' name = 'answer1'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/> <br>
+      <input class = 'answer' type = 'text' name = 'answer1'  placeholder = 'Type your answer here' required value = 'A1'/> 
+      <input class = 'is_correct' type = 'radio' name = 'answerRadio'/> <br>
 
 
       <label for = 'answer2'>#2</label>
-      <input type = 'text' name = 'answer2'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/><br>
+      <input class = 'answer' type = 'text' name = 'answer2'  placeholder = 'Type your answer here' required value = 'A2' /> 
+      <input class = 'is_correct' type = 'radio' name = 'answerRadio'/><br>
 
       <label for = 'answer3'>#3</label>
-      <input type = 'text' name = 'answer3'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/><br>
+      <input class = 'answer' type = 'text' name = 'answer3'  placeholder = 'Type your answer here' required  value = 'A3' /> 
+      <input class = 'is_correct' type = 'radio' name = 'answerRadio'/><br>
 
       <label for = 'answer4'>#4</label>
-      <input type = 'text' name = 'answer4'  placeholder = 'Type your answer here' required /> <input type = 'radio' name = 'answerRadio'/><br>
+      <input class = 'answer' type = 'text' name = 'answer4'  placeholder = 'Type your answer here' required  value = 'A4'/>
+      <input class = 'is_correct' type = 'radio' name = 'answerRadio'/><br>
 
     </fieldset>
 
