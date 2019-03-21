@@ -10,7 +10,7 @@ let myData = {}
 
 let giphs = document.getElementById('giphs')
 
-giphyRequest.open('GET', `${giphyEndpoint}${searchedExpression}${myKey}`)
+giphyRequest.open('GET', `http://api.giphy.com/v1/gifs/search?q=hug&api_key=AFEPytBGSvTRnhdqk3XZZTaCcINoFiWI`)
 
 giphyRequest.onload = function () {
   myData = JSON.parse(giphyRequest.responseText);

@@ -5,15 +5,14 @@ const app = express();
 const PORT = 3000;
 const path = require('path');
 
-const myData = require('giphy').myData
+// const myData = require('giphy').myData
 
-app.use('/assets', express.static('assets'))
+app.use('/', express.static('.'))
 
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'))
-  console.log(myData);
-  
+
 })
 
 
