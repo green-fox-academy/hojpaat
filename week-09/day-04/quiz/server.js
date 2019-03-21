@@ -156,3 +156,5 @@ function getQuestion(searchedID, res){
 function randomElemFromArray(inputArray){
   return inputArray[Math.round(Math.random() * (inputArray.length - 1))];
 }
+
+module.exports = app;
