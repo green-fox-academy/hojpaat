@@ -1,5 +1,6 @@
 'use strict';
 
+
 const myRequest = new XMLHttpRequest();
 
 const submitBtn = document.querySelector('#submitBtn');
@@ -7,22 +8,47 @@ const submitBtn = document.querySelector('#submitBtn');
 submitBtn.onclick = (e) => {
   e.stopPropagation();
   e.preventDefault();
-  formData();
+  sendForm();
 }
 
-function formData(){
+function formData() {
   let answers = document.querySelectorAll('.answer');
   let radioButtons = document.querySelectorAll('.is_correct');
-  let response = [];
+  
+  return {
+    question: document.getElementById('question').value,
+    answers: createAnswerCheckArray(answers, radioButtons)
+  }
 
-answers.forEach((oneAnswer, index) => {
+}
+
+function createAnswerCheckArray(inputAnswers, inputRadioButtons){
+  let answerCheckArray = [];
+
+  inputAnswers.forEach((oneAnswer, index) => {
+    let answerKey = `answer_${index + 1}`;
     let answerCheckedPairs = {
-      answer: oneAnswer.value,
-      is_correct: radioButtons[index].checked === true ? 1 : 0
+      [answerKey]: oneAnswer.value,
+      is_correct: inputRadioButtons[index].checked === true ? 1 : 0
     }
 
-    response.push(answerCheckedPairs);
+    answerCheckArray.push(answerCheckedPairs);
   })
-  console.log(response);
+  return answerCheckArray;
+}
 
+function sendForm(){
+  myRequest.open('POST', '/api/questions');
+  myRequest.onload = (e) => {
+    clearForm();
+    console.log(e.target.responseText)}
+  myRequest.setRequestHeader('Content-Type', 'application/json');
+  myRequest.send(JSON.stringify(formData()))
+}
+
+function clearForm(){
+  let formFields = document.querySelectorAll('input');
+  formFields.forEach((field, index, mainArray) =>{
+    index < mainArray.length - 1 ? field.value = '' : '';
+  })
 }

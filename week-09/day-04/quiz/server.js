@@ -33,5 +33,26 @@ app.get('/questions', (req, res) => {
 app.post('/api/questions', (req, res) => {
   let question = req.body.question;
   let answers = req.body.answers;
-  res.send(req.body);
+  let SQLquestion = `INSERT INTO questions (question) VALUES ('${question}');`;
+
+  conn.query(SQLquestion, (err, rows) => {
+    if(err){
+      console.error(err);
+      res.status(500).send();
+      return
+    }
+    // let questionId = res.insertId;
+
+    // let SQLanswers = `INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[0].answer_1}, ${answers[0].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[1].answer_2}, ${answers[1].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[2].answer_3}, ${answers[2].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[3].answer_4}, ${answers[3].is_correct});`;
+
+    // conn.query(SQLanswers, (err, rows) => {
+    //   if(err){
+    //     console.error(err);
+    //     res.status(500).send();
+    //     return
+    //   }
+      res.send(rows);
+    })
+  // })
+  // res.send('happaned');
 })
