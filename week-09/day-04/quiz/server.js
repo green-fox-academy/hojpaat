@@ -31,7 +31,22 @@ app.get('/questions', (req, res) => {
 })
 
 app.get('/api/game', (req, res) => {
-  getQuestion(1, res);
+  
+    let SQL = `SELECT id FROM questions;`;
+
+    conn.query(SQL, (err, rows) => {
+      if(err){
+        console.error(err);
+        res.status(500).send();
+        return
+      }
+      let allQuestionId = rows.map(elem => {
+        return elem.id
+      })
+      console.log(allQuestionId[randomNumber]);
+      res.send(allQuestionId);
+      // getQuestion(neededId, res);
+  })
 })
 
 app.post('/api/questions', (req, res) => {
@@ -99,4 +114,8 @@ function getQuestion(searchedID, res){
       })
     })
   })
+}
+
+function randomElemFromArray(inputArray){
+  return inputArray[Math.floor(Math.random() * inputArray.length + 1)];
 }
