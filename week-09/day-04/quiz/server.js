@@ -41,9 +41,9 @@ app.post('/api/questions', (req, res) => {
       res.status(500).send();
       return
     }
-    // let questionId = res.insertId;
+    let questionId = res.insertId;
 
-    // let SQLanswers = `INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[0].answer_1}, ${answers[0].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[1].answer_2}, ${answers[1].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[2].answer_3}, ${answers[2].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[3].answer_4}, ${answers[3].is_correct});`;
+    let SQLanswers = `INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[0].answer_1}, ${answers[0].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[1].answer_2}, ${answers[1].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[2].answer_3}, ${answers[2].is_correct}); INSERT INTO answers (question_id), answer, is_correct) VALUES (${questionId}, ${answers[3].answer_4}, ${answers[3].is_correct});`;
 
     // conn.query(SQLanswers, (err, rows) => {
     //   if(err){
