@@ -1,13 +1,13 @@
-package com.greenfoxacademy.todoapp;
+package com.gfa.zoo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TodoappApplication {
+public class ZooApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TodoappApplication.class, args);
+        SpringApplication.run(ZooApplication.class, args);
     }
 
 }

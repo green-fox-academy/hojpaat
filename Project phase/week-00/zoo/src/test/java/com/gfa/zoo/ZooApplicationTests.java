@@ -1,4 +1,4 @@
-package com.greenfoxacademy.todoapp;
+package com.gfa.zoo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TodoappApplicationTests {
+public class ZooApplicationTests {
 
     @Test
     public void contextLoads() {
