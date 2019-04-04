@@ -9,13 +9,16 @@ public class Animal {
 
     @Id
 //    @Column(name = "id")
-    private long id;
+    private Integer id;
 //    @Column(name = "name")
     private String name;
 //    @Column(name = "species_id")
-    private String speciesId;
+    private Integer speciesId;
 
-    public Animal(long id, String name, String speciesId) {
+    public Animal() {
+    }
+
+    public Animal(Integer id, String name, Integer speciesId) {
         this.id = id;
         this.name = name;
         this.speciesId = speciesId;
@@ -25,7 +28,7 @@ public class Animal {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -37,11 +40,11 @@ public class Animal {
         this.name = name;
     }
 
-    public String getSpeciesId() {
+    public Integer getSpeciesId() {
         return speciesId;
     }
 
-    public void setSpeciesId(String speciesId) {
+    public void setSpeciesId(Integer speciesId) {
         this.speciesId = speciesId;
     }
 }
