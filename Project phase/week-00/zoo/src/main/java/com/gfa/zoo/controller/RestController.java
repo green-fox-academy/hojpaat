@@ -19,5 +19,6 @@ public class RestController {
     @GetMapping("/animals")
     public List<Animal> getAllAnimal(){
         return animalService.getAllAnimals();
+
     }
 }
