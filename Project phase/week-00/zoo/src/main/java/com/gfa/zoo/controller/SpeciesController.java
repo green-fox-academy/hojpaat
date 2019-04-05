@@ -26,15 +26,15 @@ public class SpeciesController {
 		return speciesService.getAllSpecies();
 	}
 
-	@GetMapping({"", "/"})
-	public Species getSpeciesById(Long id){
+	@GetMapping({"/{id}"})
+	public Species getSpeciesById(@PathVariable Long id){
 		return speciesService.getSpeciesById(id);
 	}
 
 	@PostMapping({"", "/"})
 	public HashMap<String, String> addSpecies(@RequestBody Species species){
 		HashMap<String, String> responseMessage = new HashMap<>();
-		responseMessage.put("The next spcies was addid", species.getName());
+		responseMessage.put("The next spcies was addid", species.getSpeciesName());
 		speciesService.addSpecies(species);
 		return responseMessage;
 	}

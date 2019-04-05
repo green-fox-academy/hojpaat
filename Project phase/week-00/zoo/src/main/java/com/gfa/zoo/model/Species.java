@@ -9,14 +9,19 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "species")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Species {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String speciesName;
+
+	public Species() {
+	}
+
+	public Species(String speciesName) {
+		this.speciesName = speciesName;
+	}
 
 	public Long getId() {
 		return id;
@@ -26,11 +31,11 @@ public class Species {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getSpeciesName() {
+		return speciesName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNSpeciesName(String speciesName) {
+		this.speciesName = speciesName;
 	}
 }
