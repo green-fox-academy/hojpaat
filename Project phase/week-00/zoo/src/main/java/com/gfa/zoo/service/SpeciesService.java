@@ -1,7 +1,6 @@
 package com.gfa.zoo.service;
 
 import com.gfa.zoo.model.Species;
-import com.gfa.zoo.repository.AnimalRepository;
 import com.gfa.zoo.repository.SpeciesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +11,7 @@ import java.util.List;
 @Service
 public class SpeciesService {
 
+
 	private SpeciesRepository speciesRepository;
 
 	@Autowired
@@ -21,7 +21,6 @@ public class SpeciesService {
 
 	public List<Species> getAllSpecies(){
 		List<Species> species = new ArrayList<>();
-
 		speciesRepository.findAll().forEach(species::add);
 		return species;
 	}
@@ -30,15 +29,15 @@ public class SpeciesService {
 		speciesRepository.save(species);
 	}
 
-	public Species getSpeciesById(long id){
-		return speciesRepository.findSpeciesBy(id);
+	public Species	getSpeciesById(long id){
+		return speciesRepository.findSpeciesById(id);
 	}
 
-	public void deleteSpeciesById(long id){
+	public void deleteSpecies(long id){
 		speciesRepository.deleteById(id);
 	}
 
-	public void updateSpecies(Species species) {
+	public void updateSpecies(Species species){
 		speciesRepository.save(species);
 	}
 

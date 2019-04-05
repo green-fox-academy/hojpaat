@@ -8,16 +8,17 @@ import java.util.HashMap;
 import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
+@RequestMapping(value = "/animals")
+public class AnimalsController {
 
     private AnimalService animalService;
 
     @Autowired
-    public RestController(AnimalService animalService) {
+    public AnimalsController(AnimalService animalService) {
         this.animalService = animalService;
     }
 
-    @PostMapping("/animals")
+    @PostMapping({"/", ""})
     public HashMap<String, String> addAnimal(@RequestBody Animal animal){
         HashMap<String, String> returnMessage = new HashMap<>();
         returnMessage.put("The next animal was addid", animal.getName());
@@ -25,18 +26,18 @@ public class RestController {
         return returnMessage;
     }
 
-    @GetMapping("/animals")
+    @GetMapping({"/", ""})
     public List<Animal> getAllAnimal(){
         return animalService.getAllAnimals();
     }
 
-    @GetMapping("/animals/{id}")
+    @GetMapping("/{id}")
     public Object getAnimal(
             @PathVariable("id") Integer id){
         return animalService.getAnimal(id);
     }
 
-    @DeleteMapping("/animals/{id}")
+    @DeleteMapping("/{id}")
     public HashMap<String, String> deleteAnimal(@PathVariable("id") Integer id){
         HashMap<String, String> responseMessage = new HashMap<>();
         System.out.println(animalService.getAnimal(id).getClass());;
@@ -45,7 +46,7 @@ public class RestController {
         return responseMessage;
     }
 
-    @PutMapping("/animals/{id}")
+    @PutMapping("/{id}")
     public HashMap<String, String> updateAnimal(
             @RequestBody Animal animal,
             @PathVariable("id") Integer id){
