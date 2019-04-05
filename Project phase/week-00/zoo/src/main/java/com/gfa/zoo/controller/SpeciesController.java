@@ -39,4 +39,12 @@ public class SpeciesController {
 		return responseMessage;
 	}
 
+	@PutMapping("/{id}")
+	public HashMap<String, String> updateSpecies(@RequestBody Species species, @PathVariable Long id){
+		HashMap<String, String> responseMessage = new HashMap<>();
+		responseMessage.put("Species with the followind ide updated", Long.toString(id));
+		speciesService.updateSpecies(species);
+		return responseMessage;
+	}
+
 }
