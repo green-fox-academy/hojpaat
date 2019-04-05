@@ -2,6 +2,7 @@ package com.gfa.zoo.controller;
 
 import com.gfa.zoo.model.Species;
 import com.gfa.zoo.service.SpeciesService;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,11 @@ public class SpeciesController {
 	@GetMapping({"", "/"})
 	public List<Species> getAllspecies(){
 		return speciesService.getAllSpecies();
+	}
+
+	@GetMapping({"", "/"})
+	public Species getSpeciesById(Long id){
+		return speciesService.getSpeciesById(id);
 	}
 
 	@PostMapping({"", "/"})
