@@ -1,25 +1,23 @@
-package com.gfa.zoo;
+package com.gfa.zoo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "animals")
 public class Animal {
 
     @Id
-//    @Column(name = "id")
-    private Integer id;
-//    @Column(name = "name")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(name = "name")
     private String name;
-//    @Column(name = "species_id")
+    @Column(name = "species_id")
     private Integer speciesId;
 
     public Animal() {
     }
 
-    public Animal(Integer id, String name, Integer speciesId) {
-        this.id = id;
+    public Animal(String name, Integer speciesId) {
         this.name = name;
         this.speciesId = speciesId;
     }

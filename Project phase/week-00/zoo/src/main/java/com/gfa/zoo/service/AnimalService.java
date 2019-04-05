@@ -1,5 +1,7 @@
-package com.gfa.zoo;
+package com.gfa.zoo.service;
 
+import com.gfa.zoo.model.Animal;
+import com.gfa.zoo.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,22 @@ public class AnimalService {
                 .forEach(animals::add);
         return animals;
     }
+
+    public void addAnimal(Animal animal){
+        animalRepository.save(animal);
+    }
+
+    public Animal getAnimal(long id){
+        //Animal searchedAnimal = (Animal) animalRepository.findById((id));
+        return animalRepository.findAnimalById(id);
+    }
+
+    public void deleteAnimal(long id){
+        animalRepository.deleteById(id);
+    }
+
+    public void updateAnimal(Animal animal){
+       animalRepository.save(animal);
+   }
 
 }
