@@ -1,5 +1,8 @@
 package com.gfa.zoo.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +16,11 @@ public class Animal {
     private String name;
     @Column(name = "species_id")
     private Integer speciesId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "species_id", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private Species species;
 
     public Animal() {
     }
@@ -44,5 +52,13 @@ public class Animal {
 
     public void setSpeciesId(Integer speciesId) {
         this.speciesId = speciesId;
+    }
+
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
     }
 }

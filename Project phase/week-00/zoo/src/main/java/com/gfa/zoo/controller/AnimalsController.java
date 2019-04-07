@@ -1,5 +1,6 @@
 package com.gfa.zoo.controller;
 import com.gfa.zoo.model.Animal;
+import com.gfa.zoo.model.Species;
 import com.gfa.zoo.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +57,4 @@ public class AnimalsController {
         animalService.updateAnimal(animal);
         return responseMessage;
     }
-
 }

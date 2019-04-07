@@ -47,4 +47,12 @@ public class SpeciesController {
 		return responseMessage;
 	}
 
+	@DeleteMapping("/{id}")
+	public HashMap<String, String> deleteSpecies(@PathVariable Long id){
+		HashMap<String, String> responseMessage = new HashMap<>();
+		responseMessage.put("Species with the following id was deleted", Long.toString(id));
+		speciesService.deleteSpecies(id);
+		return responseMessage;
+	}
+
 }

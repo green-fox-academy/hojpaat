@@ -1,6 +1,7 @@
 package com.gfa.zoo.service;
 
 import com.gfa.zoo.model.Animal;
+import com.gfa.zoo.model.Species;
 import com.gfa.zoo.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,10 @@ public class AnimalService {
 
     public void updateAnimal(Animal animal){
        animalRepository.save(animal);
+   }
+
+   public Species getAnimalSpecies(Animal animal){
+        return animal.getSpecies();
    }
 
 }
