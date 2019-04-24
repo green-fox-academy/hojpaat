@@ -3,6 +3,8 @@ import com.gfa.zoo.model.Animal;
 import com.gfa.zoo.model.Species;
 import com.gfa.zoo.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -28,8 +30,10 @@ public class AnimalsController {
     }
 
     @GetMapping({"/", ""})
-    public List<Animal> getAllAnimal(){
-        return animalService.getAllAnimals();
+		@ResponseBody
+    public ResponseEntity getAllAnimal(){
+    	List<Animal> animals = animalService.getAllAnimals();
+    	return new ResponseEntity(animals, HttpStatus.I_AM_A_TEAPOT);
     }
 
     @GetMapping("/{id}")
@@ -44,6 +48,7 @@ public class AnimalsController {
         System.out.println(animalService.getAnimal(id).getClass());;
         responseMessage.put("Animal with the following Id was deleted", Integer.toString(id));
         animalService.deleteAnimal(id);
+        
         return responseMessage;
     }
 

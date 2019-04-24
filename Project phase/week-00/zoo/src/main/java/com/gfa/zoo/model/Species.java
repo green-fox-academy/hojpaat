@@ -17,7 +17,7 @@ public class Species {
     private Long id;
     private String speciesName;
 
-    @OneToMany(targetEntity = Animal.class, mappedBy = "id", orphanRemoval = false, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id", orphanRemoval = false, fetch = FetchType.EAGER)
     private List<Animal> animals;
 
 	public Species() {

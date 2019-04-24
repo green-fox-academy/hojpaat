@@ -1,0 +1,44 @@
+* {
+  border: 0;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: rgb(206, 192, 130);
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  margin: 15px;
+}
+
+#main {
+  height: auto;
+  width: 300px;
+}
+
+.spaciesRadioBtn{
+  padding: 5px;
+  margin: 5px;
+}
+
+input {
+  margin: 3px;
+}
+
+button {
+  width: 80px;
+  height: 25px;
+  padding: 5px;
+  box-shadow: 7px 10px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+  background-color: olivedrab;
+  color: white;
+}
+
+#name {
+  height: 25px;
+  width: 300px;
+}
