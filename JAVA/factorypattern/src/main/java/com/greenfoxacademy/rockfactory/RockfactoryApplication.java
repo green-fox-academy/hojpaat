@@ -1,5 +1,6 @@
 package com.greenfoxacademy.rockfactory;
 
+import com.greenfoxacademy.rockfactory.rock.RockFactoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
